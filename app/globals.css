@@ -1,37 +1,40 @@
 @import "tailwindcss";
 
-/* ─── Design Tokens ─── */
+/* ─── Design Tokens (Arkitect / Minimal Editorial) ─── */
 :root {
-  --navy: #1A2B4A;
-  --navy-light: #243658;
-  --navy-dark: #111D33;
-  --gold: #C8963E;
-  --gold-hover: #B5842F;
-  --gold-light: #D4A85A;
-  --cream: #FAFAF8;
-  --cream-warm: #F3F1EE;
-  --text-primary: #1A2B4A;
-  --text-secondary: #5A6577;
-  --text-muted: #9AA3B0;
-  --border: #E5E2DC;
-  --border-light: #EDEAE5;
-  --white: #FFFFFF;
+  --hero-slate: #4a6778;
+  --hero-slate-dark: #374f5d;
+  --charcoal: #111418;
+  --charcoal-soft: #1e242b;
+  --charcoal-pill: #121417;
+  --gold: #c8963e;
+  --gold-hover: #b5842f;
+  --surface-offwhite: #fbfbfb;
+  --surface-card: #f8f9fb;
+  --surface-alt: #f1f3f6;
+  --text-main: #111418;
+  --text-secondary: #596574;
+  --text-muted: #8c97a5;
+  --border-subtle: #e6e9ed;
+  --white: #ffffff;
 }
 
 @theme inline {
-  --color-navy: var(--navy);
-  --color-navy-light: var(--navy-light);
-  --color-navy-dark: var(--navy-dark);
+  --color-hero-slate: var(--hero-slate);
+  --color-hero-slate-dark: var(--hero-slate-dark);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-soft: var(--charcoal-soft);
+  --color-charcoal-pill: var(--charcoal-pill);
+  --color-forest: #1f3d35;
   --color-gold: var(--gold);
   --color-gold-hover: var(--gold-hover);
-  --color-gold-light: var(--gold-light);
-  --color-cream: var(--cream);
-  --color-cream-warm: var(--cream-warm);
-  --color-text-primary: var(--text-primary);
+  --color-surface-offwhite: var(--surface-offwhite);
+  --color-surface-card: var(--surface-card);
+  --color-surface-alt: var(--surface-alt);
+  --color-text-main: var(--text-main);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --color-border: var(--border);
-  --color-border-light: var(--border-light);
+  --color-border-subtle: var(--border-subtle);
   --font-sans: var(--font-inter);
 }
 
@@ -48,17 +51,17 @@ html {
 
 body {
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  background-color: var(--cream);
-  color: var(--text-primary);
+  background-color: var(--surface-offwhite);
+  color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ─── Focus ─── */
 *:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--charcoal);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 /* ─── Scroll Reveal Animation ─── */
@@ -93,25 +96,26 @@ body {
 }
 
 /* ─── Overline Label ─── */
-.overline {
+.overline-tag {
   font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   line-height: 1;
+  color: var(--text-muted);
 }
 
-/* ─── Custom scrollbar (subtle) ─── */
+/* ─── Custom scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: var(--surface-offwhite);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--border-subtle);
   border-radius: 4px;
 }
 
