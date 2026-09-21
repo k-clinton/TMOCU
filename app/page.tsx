@@ -3,15 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
-
-const platformLogos = [
-  { name: "CANVAS LMS", icon: "⬡ CANVAS" },
-  { name: "BLACKBOARD LEARN", icon: "■ BLACKBOARD" },
-  { name: "BRIGHTSPACE D2L", icon: "● BRIGHTSPACE" },
-  { name: "MOODLE PORTAL", icon: "▲ MOODLE" },
-  { name: "PEARSON MYLAB", icon: "◆ PEARSON" },
-  { name: "MCGRAW HILL", icon: "★ MCGRAW-HILL" },
-];
+import PlatformMarquee from "@/components/ui/PlatformMarquee";
 
 const metricCards = [
   {
@@ -119,21 +111,11 @@ export default function HomePage() {
       >
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* ─── LMS / Platform Monochrome Logo Strip ─── */}
-          <div className="border-b border-border-subtle pb-14 mb-16">
+          <div className="border-b border-border-subtle pb-12 mb-16">
             <div className="text-center mb-6">
               <span className="overline-tag">SUPPORTED PORTALS & PLATFORMS</span>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14 opacity-70">
-              {platformLogos.map((item) => (
-                <div
-                  key={item.name}
-                  className="text-xs md:text-sm font-bold tracking-widest text-charcoal flex items-center gap-2 hover:opacity-100 transition-opacity"
-                >
-                  <span className="w-2 h-2 rounded-full bg-charcoal/30" />
-                  {item.name}
-                </div>
-              ))}
-            </div>
+            <PlatformMarquee />
           </div>
 
           {/* ─── 3 Metric Feature Cards (Arkitect Grid) ─── */}
