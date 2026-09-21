@@ -6,7 +6,7 @@ const portals = [
   {
     name: "Canvas LMS",
     logo: (
-      <svg className="h-7 w-auto" viewBox="0 0 200 44" fill="currentColor">
+      <svg className="h-10 sm:h-12 w-auto" viewBox="0 0 200 44" fill="currentColor">
         {/* Canvas Instructure 8-petal icon */}
         <g transform="translate(4, 2)">
           <circle cx="20" cy="5" r="3.6" />
@@ -23,7 +23,7 @@ const portals = [
           x="54"
           y="28"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="22"
+          fontSize="23"
           fontWeight="700"
           letterSpacing="-0.5px"
         >
@@ -35,7 +35,7 @@ const portals = [
   {
     name: "Blackboard Learn",
     logo: (
-      <svg className="h-7 w-auto" viewBox="0 0 230 44" fill="currentColor">
+      <svg className="h-10 sm:h-12 w-auto" viewBox="0 0 230 44" fill="currentColor">
         {/* Blackboard icon */}
         <g transform="translate(6, 6)">
           <rect x="0" y="0" width="13" height="13" rx="3" />
@@ -48,17 +48,17 @@ const portals = [
           x="44"
           y="27"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="18"
+          fontSize="19"
           fontWeight="800"
           letterSpacing="-0.3px"
         >
           Blackboard
         </text>
         <text
-          x="154"
+          x="160"
           y="27"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="16"
+          fontSize="17"
           fontWeight="400"
           fill="currentColor"
           opacity="0.65"
@@ -71,7 +71,7 @@ const portals = [
   {
     name: "Brightspace D2L",
     logo: (
-      <svg className="h-7 w-auto" viewBox="0 0 220 44" fill="currentColor">
+      <svg className="h-10 sm:h-12 w-auto" viewBox="0 0 220 44" fill="currentColor">
         {/* D2L Brightspace Flame Prism */}
         <g transform="translate(4, 5)">
           <path d="M8 26L18 4L28 26H8Z" stroke="currentColor" strokeWidth="3" fill="none" strokeLinejoin="round" />
@@ -81,17 +81,17 @@ const portals = [
           x="42"
           y="27"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="18"
+          fontSize="19"
           fontWeight="700"
           letterSpacing="-0.2px"
         >
           brightspace
         </text>
         <text
-          x="160"
+          x="166"
           y="21"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="10"
+          fontSize="11"
           fontWeight="800"
           letterSpacing="1px"
           opacity="0.6"
@@ -104,7 +104,7 @@ const portals = [
   {
     name: "Moodle",
     logo: (
-      <svg className="h-7 w-auto" viewBox="0 0 170 44" fill="currentColor">
+      <svg className="h-10 sm:h-12 w-auto" viewBox="0 0 170 44" fill="currentColor">
         {/* Moodle Mortarboard cap on m */}
         <g transform="translate(2, 4)">
           <path d="M16 4L4 9L16 14L28 9L16 4Z" />
@@ -114,7 +114,7 @@ const portals = [
           x="36"
           y="28"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="23"
+          fontSize="24"
           fontWeight="800"
           letterSpacing="-0.5px"
         >
@@ -126,7 +126,7 @@ const portals = [
   {
     name: "Pearson MyLab",
     logo: (
-      <svg className="h-7 w-auto" viewBox="0 0 210 44" fill="currentColor">
+      <svg className="h-10 sm:h-12 w-auto" viewBox="0 0 210 44" fill="currentColor">
         {/* Pearson Interlocking ellipse */}
         <g transform="translate(4, 7)">
           <circle cx="14" cy="14" r="12" fill="none" stroke="currentColor" strokeWidth="3" />
@@ -136,17 +136,17 @@ const portals = [
           x="38"
           y="27"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="19"
+          fontSize="20"
           fontWeight="700"
           letterSpacing="-0.3px"
         >
           Pearson
         </text>
         <text
-          x="122"
+          x="128"
           y="27"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="15"
+          fontSize="16"
           fontWeight="500"
           opacity="0.75"
         >
@@ -158,7 +158,7 @@ const portals = [
   {
     name: "McGraw Hill Connect",
     logo: (
-      <svg className="h-7 w-auto" viewBox="0 0 230 44" fill="currentColor">
+      <svg className="h-10 sm:h-12 w-auto" viewBox="0 0 230 44" fill="currentColor">
         {/* McGraw Hill red square array / symbol */}
         <g transform="translate(4, 6)">
           <rect x="0" y="0" width="12" height="12" rx="2" />
@@ -170,7 +170,7 @@ const portals = [
           x="38"
           y="21"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="13"
+          fontSize="14"
           fontWeight="800"
           letterSpacing="0.2px"
         >
@@ -180,7 +180,7 @@ const portals = [
           x="38"
           y="34"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="12"
+          fontSize="13"
           fontWeight="600"
           letterSpacing="1px"
           opacity="0.65"
@@ -193,7 +193,7 @@ const portals = [
   {
     name: "Cengage WebAssign",
     logo: (
-      <svg className="h-7 w-auto" viewBox="0 0 200 44" fill="currentColor">
+      <svg className="h-10 sm:h-12 w-auto" viewBox="0 0 200 44" fill="currentColor">
         <g transform="translate(4, 7)">
           <circle cx="14" cy="14" r="5" />
           <path d="M14 2V6M14 22V26M2 14H6M22 14H26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
@@ -202,7 +202,7 @@ const portals = [
           x="36"
           y="27"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="17"
+          fontSize="18"
           fontWeight="800"
           letterSpacing="0.5px"
         >
@@ -214,22 +214,22 @@ const portals = [
   {
     name: "WileyPLUS",
     logo: (
-      <svg className="h-7 w-auto" viewBox="0 0 170 44" fill="currentColor">
+      <svg className="h-10 sm:h-12 w-auto" viewBox="0 0 170 44" fill="currentColor">
         <text
           x="4"
           y="28"
           fontFamily="Georgia, serif"
-          fontSize="21"
+          fontSize="22"
           fontWeight="700"
           fontStyle="italic"
         >
           WILEY
         </text>
         <text
-          x="80"
+          x="84"
           y="28"
           fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="15"
+          fontSize="16"
           fontWeight="800"
           letterSpacing="1px"
           opacity="0.75"
@@ -243,14 +243,14 @@ const portals = [
 
 export default function PlatformMarquee() {
   return (
-    <div className="w-full overflow-hidden py-4">
+    <div className="w-full overflow-hidden py-6 sm:py-8">
       <div className="mask-gradient-x relative w-full overflow-hidden">
-        <div className="animate-marquee flex items-center gap-12 sm:gap-20">
+        <div className="animate-marquee flex items-center gap-16 sm:gap-24">
           {/* First track */}
           {portals.map((portal, index) => (
             <div
               key={`track1-${index}`}
-              className="flex items-center justify-center shrink-0 text-charcoal/70 hover:text-charcoal transition-all duration-200 transform hover:scale-105"
+              className="flex items-center justify-center shrink-0 text-charcoal/85 hover:text-charcoal transition-all duration-200 transform hover:scale-105"
               title={portal.name}
             >
               {portal.logo}
@@ -261,7 +261,7 @@ export default function PlatformMarquee() {
           {portals.map((portal, index) => (
             <div
               key={`track2-${index}`}
-              className="flex items-center justify-center shrink-0 text-charcoal/70 hover:text-charcoal transition-all duration-200 transform hover:scale-105"
+              className="flex items-center justify-center shrink-0 text-charcoal/85 hover:text-charcoal transition-all duration-200 transform hover:scale-105"
               title={portal.name}
             >
               {portal.logo}
