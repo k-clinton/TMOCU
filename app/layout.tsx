@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,15 +15,12 @@ export const metadata: Metadata = {
   title: "TakeMyOnlineClassUSA — Online Class Support for Busy Students",
   description:
     "TMOCU provides professional online class support for busy students. We help manage your coursework, assignments, quizzes, and exams so you can focus on what matters most.",
-  metadataBase: new URL("https://takemyonlineclassusa.com"),
-  alternates: {
-    canonical: "/",
-  },
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "TakeMyOnlineClassUSA — Online Class Support for Busy Students",
     description:
       "Professional academic support for students managing heavy online workloads. Coursework, assignments, quizzes, and exam support, all in one place.",
-    url: "https://takemyonlineclassusa.com",
+    url: SITE_URL,
     siteName: "TakeMyOnlineClassUSA",
     locale: "en_US",
     type: "website",
