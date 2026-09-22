@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "How It Works — Step by Step Class Management Process | TMOCU",
   description:
     "Learn how our online class management workflow works from syllabus intake to grade delivery and continuous communication.",
+  alternates: {
+    canonical: "/how-it-works",
+  },
 };
 
 const steps = [
