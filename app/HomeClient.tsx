@@ -33,22 +33,25 @@ export default function HomeClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FBFBFB]">
-      {/* ─── Hero Section (Arkitect Sky Slate Tone with Architectural Backdrop) ─── */}
+      {/* ─── Hero Section (Architectural Backdrop with Left Gradient for Text Contrast) ─── */}
       <section
         ref={heroRef}
-        className="relative bg-[#476678] text-white pt-32 md:pt-40 pb-24 md:pb-36 px-6 lg:px-12 overflow-hidden"
+        className="relative bg-[#1E2B34] text-white pt-32 md:pt-40 pb-24 md:pb-36 px-6 lg:px-12 overflow-hidden"
         aria-label="Hero"
       >
-        {/* Architectural Photo Overlay */}
+        {/* Architectural Photo Backdrop & Dynamic Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-architecture.jpg"
             alt="Modern university campus architecture"
             fill
-            className="object-cover object-center opacity-30 mix-blend-luminosity"
+            className="object-cover object-center sm:object-[center_35%] opacity-85"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#344D5B] via-[#476678]/90 to-[#476678]/80" />
+          {/* Gradient: Stronger dark-slate backing on the left for text legibility, fading out completely towards the right to reveal the architectural structure */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1B2932]/95 via-[#23333E]/80 via-45% md:via-40% to-transparent" />
+          {/* Subtle top/bottom atmospheric vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1B2932]/40 via-transparent to-black/25 pointer-events-none" />
         </div>
 
         <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
