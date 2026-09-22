@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TakeMyOnlineClassUSA — Online Class Support for Busy Students",
     description:
-      "Professional academic support for students managing heavy online workloads. Coursework, assignments, quizzes, and exam support — all in one place.",
+      "Professional academic support for students managing heavy online workloads. Coursework, assignments, quizzes, and exam support, all in one place.",
     url: "https://takemyonlineclassusa.com",
     siteName: "TakeMyOnlineClassUSA",
     locale: "en_US",
