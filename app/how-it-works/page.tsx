@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How It Works — Step-by-Step Class Management Process | TMOCU",
+  title: "How It Works — Step by Step Class Management Process | TMOCU",
   description:
     "Learn how our online class management workflow works from syllabus intake to grade delivery and continuous communication.",
 };
@@ -66,7 +66,7 @@ const faqs = [
   },
   {
     q: "Can you help with full semester classes or just individual assignments?",
-    a: "Both! We support everything from a single urgent research paper or quiz to managing entire 8-week or 16-week online courses from syllabus to final exam.",
+    a: "Both! We support everything from a single urgent research paper or quiz to managing entire 8 week or 16 week online courses from syllabus to final exam.",
   },
   {
     q: "What happens if an assignment requires revision?",
@@ -102,7 +102,7 @@ export default function HowItWorksPage() {
             How It Works
           </h1>
           <p className="text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed">
-            A seamless, stress-free 4-stage process designed to give you complete peace of mind throughout your academic semester.
+            A seamless, stress-free 4 stage process designed to give you complete peace of mind throughout your academic semester.
           </p>
         </div>
       </section>
