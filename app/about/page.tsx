@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "About Us — Academic Support & Student Success | TMOCU",
   description:
     "Discover TMOCU's mission, our network of academic specialists, and our unwavering commitment to student success, confidentiality, and quality.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const pillars = [
