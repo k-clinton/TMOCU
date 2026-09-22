@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Academic Services & Coursework Support | TMOCU",
   description:
     "Explore our full suite of online class management, assignment help, exam support, and discussion board services for university students.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 const serviceDetails = [
