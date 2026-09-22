@@ -12,12 +12,12 @@ const serviceDetails = [
   {
     id: "management",
     title: "Full Online Class Management",
-    tagline: "End-to-end semester oversight from syllabus to final grades.",
+    tagline: "End to end semester oversight from syllabus to final grades.",
     description:
-      "We handle every facet of your online portal: weekly modules, reading assignments, video lectures, and deadline tracking. Perfect for working professionals juggling rigorous full-time careers with degree completion.",
+      "We handle every facet of your online portal: weekly modules, reading assignments, video lectures, and deadline tracking. Perfect for working professionals juggling rigorous full time careers with degree completion.",
     features: [
       "Weekly portal check-ins and module completion",
-      "On-time submission for all syllabus milestones",
+      "On time submission for all syllabus milestones",
       "Proactive grade monitoring and score alerts",
       "Direct communication with your assigned specialist",
     ],
@@ -25,13 +25,13 @@ const serviceDetails = [
   {
     id: "assignments",
     title: "Assignments, Papers & Problem Sets",
-    tagline: "High-caliber research and computational problem solving.",
+    tagline: "High caliber research and computational problem solving.",
     description:
-      "From complex case studies and research papers to coding labs, calculus problem sets, and statistical models in SPSS/R, our subject specialists craft accurate, well-formatted work formatted to APA, MLA, Chicago, or IEEE standards.",
+      "From complex case studies and research papers to coding labs, calculus problem sets, and statistical models in SPSS/R, our subject specialists craft accurate, well formatted work formatted to APA, MLA, Chicago, or IEEE standards.",
     features: [
       "Original research and rigorous citations",
       "Quantitative accuracy in mathematics, engineering & accounting",
-      "Detailed step-by-step working notes",
+      "Detailed step by step working notes",
       "Free revisions based on instructor feedback",
     ],
   },
@@ -43,7 +43,7 @@ const serviceDetails = [
       "Whether you are facing weekly knowledge checks, timed online quizzes, or comprehensive midterms and finals, our specialists are equipped to prepare thoroughly and achieve the target score required for your GPA.",
     features: [
       "Timed test readiness and subject reviews",
-      "Multiple-choice, short answer, and essay exam coverage",
+      "Multiple choice, short answer, and essay exam coverage",
       "Experience with LockDown Browser, Proctorio & Honorlock guidelines",
       "Targeted score benchmarks",
     ],
@@ -51,7 +51,7 @@ const serviceDetails = [
   {
     id: "discussions",
     title: "Discussion Board & Forum Posts",
-    tagline: "Engaging, well-researched peer contributions.",
+    tagline: "Engaging, well researched peer contributions.",
     description:
       "Never lose participation points again. We author thoughtful initial discussion posts addressing the prompt with academic citations, followed by required peer responses that demonstrate critical thinking.",
     features: [
@@ -106,7 +106,7 @@ export default function ServicesPage() {
             Services & Disciplines
           </h1>
           <p className="text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed">
-            Tailored academic assistance for every stage of your college education — from individual assignments to full semester class management.
+            Tailored academic assistance for every stage of your college education, from individual assignments to full semester class management.
           </p>
         </div>
       </section>
@@ -169,7 +169,7 @@ export default function ServicesPage() {
                 Disciplines We Support
               </h2>
               <p className="text-sm text-text-secondary mt-3">
-                Our network of academic specialists holds advanced degrees across all major higher-education fields.
+                Our network of academic specialists holds advanced degrees across all major higher education fields.
               </p>
             </div>
 
