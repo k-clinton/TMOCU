@@ -29,7 +29,7 @@ const services = [
   {
     title: "Assignment Assistance",
     description:
-      "Well-researched, properly formatted assignments submitted before your deadlines. Quality work you can rely on.",
+      "Well researched, properly formatted assignments submitted before your deadlines. Quality work you can rely on.",
     icon: (
       <svg
         className="w-5 h-5"
