@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { useScrollReveal } from "@/lib/useScrollReveal";
+import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
 
 export default function Hero() {
   const { ref, isVisible } = useScrollReveal(0.1);
@@ -158,19 +158,23 @@ export default function Hero() {
             }`}
           >
             <div className="relative">
-              {/* Decorative background circle */}
+              {/* Decorative background glow */}
               <div
-                className="absolute -inset-4 rounded-3xl bg-gold/5"
+                className="absolute -inset-4 rounded-3xl bg-gold/10 blur-xl opacity-70 animate-pulse-glow"
                 aria-hidden="true"
               />
-              <Image
+              <AnimatedImageCard
                 src="/images/hero-illustration.jpg"
                 alt="Student studying at a desk with laptop and books, representing online class support"
-                width={600}
-                height={450}
-                className="relative rounded-2xl shadow-xl"
+                aspectRatio="aspect-[4/3]"
                 priority
-                quality={85}
+                badge={{
+                  text: "Online Course Assistance",
+                  dotColor: "bg-gold",
+                  pulse: true,
+                  position: "bottom-left",
+                }}
+                secondaryBadge="Guaranteed Quality"
               />
             </div>
           </div>
