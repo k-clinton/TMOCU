@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 import PlatformMarquee from "@/components/ui/PlatformMarquee";
 import WhyTMOCU from "@/components/sections/WhyTMOCU";
+import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
+import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
 
 const metricCards = [
   {
@@ -33,26 +35,18 @@ export default function HomeClient() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FBFBFB]">
-      {/* ─── Hero Section (Architectural Backdrop with Left Gradient for Text Contrast) ─── */}
+      {/* ─── Hero Section (Architectural Backdrop with Animated Ken Burns & Ambient Glow) ─── */}
       <section
         ref={heroRef}
         className="relative bg-[#1E2B34] text-white pt-32 md:pt-40 pb-24 md:pb-36 px-6 lg:px-12 overflow-hidden"
         aria-label="Hero"
       >
-        {/* Architectural Photo Backdrop & Dynamic Gradient Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-architecture.jpg"
-            alt="Modern university campus architecture"
-            fill
-            className="object-cover object-center sm:object-[center_35%] opacity-85"
-            priority
-          />
-          {/* Gradient: Stronger dark-slate backing on the left for text legibility, fading out completely towards the right to reveal the architectural structure */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1B2932]/95 via-[#23333E]/80 via-45% md:via-40% to-transparent" />
-          {/* Subtle top/bottom atmospheric vignette */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1B2932]/40 via-transparent to-black/25 pointer-events-none" />
-        </div>
+        {/* Animated Architectural Photo Backdrop */}
+        <HeroImageBackdrop
+          src="/images/hero-architecture.jpg"
+          alt="Modern university campus architecture"
+          priority
+        />
 
         <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Headline & Mission */}
@@ -173,35 +167,37 @@ export default function HomeClient() {
 
             {/* Right: Vertical Realistic Photo Card */}
             <div className="lg:col-span-6">
-              <div className="relative rounded-[28px] overflow-hidden shadow-xl border border-black/5 aspect-[4/3] sm:aspect-[16/11]">
-                <Image
-                  src="/images/student-study-1.jpg"
-                  alt="Student focused on coursework in library"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
+              <AnimatedImageCard
+                src="/images/student-study-1.jpg"
+                alt="Student focused on coursework in library"
+                aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
+                badge={{
+                  text: "Syllabus Deconstruction & Planning",
+                  dotColor: "bg-gold",
+                  pulse: true,
+                  position: "bottom-left",
+                }}
+                secondaryBadge="Stage 01"
+              />
             </div>
           </div>
 
           {/* ─── Staggered Editorial Section 2: EXECUTE (Alternating Layout) ─── */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28 lg:mb-36">
-            {/* Left: Vertical Realistic Photo Card with Video/Play Badge */}
+            {/* Left: Vertical Realistic Photo Card with Live Status Badge */}
             <div className="lg:col-span-6 order-2 lg:order-1">
-              <div className="relative rounded-[28px] overflow-hidden shadow-xl border border-black/5 aspect-[4/3] sm:aspect-[16/11] group">
-                <Image
-                  src="/images/student-study-2.jpg"
-                  alt="Student studying with laptop and books"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full text-white text-xs font-semibold flex items-center gap-2 border border-white/20">
-                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  Live Academic Tracking
-                </div>
-              </div>
+              <AnimatedImageCard
+                src="/images/student-study-2.jpg"
+                alt="Student studying with laptop and books"
+                aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
+                badge={{
+                  text: "Live Portal Tracking & Execution",
+                  dotColor: "bg-emerald-400",
+                  pulse: true,
+                  position: "bottom-left",
+                }}
+                secondaryBadge="Stage 02"
+              />
             </div>
 
             {/* Right: Text Narrative */}
@@ -253,15 +249,18 @@ export default function HomeClient() {
 
             {/* Right: Realistic Photo Card */}
             <div className="lg:col-span-6">
-              <div className="relative rounded-[28px] overflow-hidden shadow-xl border border-black/5 aspect-[4/3] sm:aspect-[16/11]">
-                <Image
-                  src="/images/students-collaboration.jpg"
-                  alt="Students studying collaboratively in modern atrium"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
+              <AnimatedImageCard
+                src="/images/students-collaboration.jpg"
+                alt="Students studying collaboratively in modern atrium"
+                aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
+                badge={{
+                  text: "Grade A Targets Verified",
+                  dotColor: "bg-emerald-400",
+                  pulse: true,
+                  position: "bottom-left",
+                }}
+                secondaryBadge="Stage 03"
+              />
             </div>
           </div>
 
