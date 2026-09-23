@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
+import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
 
 const reasons = [
   {
@@ -121,12 +121,18 @@ export default function WhyTMOCU() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative h-60 sm:h-72 rounded-2xl overflow-hidden border border-white/10">
-            <Image
+          <div className="lg:col-span-5">
+            <AnimatedImageCard
               src="/images/student-study-1.jpg"
               alt="Student focused on coursework"
-              fill
-              className="object-cover"
+              aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
+              badge={{
+                text: "24/7 Coordinator Support Active",
+                dotColor: "bg-gold",
+                pulse: true,
+                position: "bottom-left",
+              }}
+              secondaryBadge="Verified SLA"
             />
           </div>
         </div>
