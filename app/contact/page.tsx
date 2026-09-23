@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import ContactClient from "./ContactClient";
+import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
 
 export const metadata: Metadata = {
   title: "Request Class Support — Free Confidential Quote | TMOCU",
@@ -16,17 +16,11 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-[#FBFBFB]">
       {/* ─── Hero Header ─── */}
       <section className="relative bg-[#1E2B34] text-white pt-32 md:pt-40 pb-20 md:pb-28 px-6 lg:px-12 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-architecture.jpg"
-            alt="University campus architecture"
-            fill
-            className="object-cover object-center opacity-80"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1B2932]/95 via-[#23333E]/80 via-45% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1B2932]/40 via-transparent to-black/25 pointer-events-none" />
-        </div>
+        <HeroImageBackdrop
+          src="/images/hero-architecture.jpg"
+          alt="University campus architecture"
+          priority
+        />
 
         <div className="relative z-10 max-w-[1280px] mx-auto space-y-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold tracking-wider uppercase text-white/90">
