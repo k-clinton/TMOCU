@@ -1,6 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
+import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
 
 export const metadata: Metadata = {
   title: "How It Works — Step by Step Class Management Process | TMOCU",
@@ -86,17 +87,11 @@ export default function HowItWorksPage() {
     <div className="flex flex-col min-h-screen bg-[#FBFBFB]">
       {/* ─── Hero Header ─── */}
       <section className="relative bg-[#1E2B34] text-white pt-32 md:pt-40 pb-20 md:pb-28 px-6 lg:px-12 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-architecture.jpg"
-            alt="University architecture"
-            fill
-            className="object-cover object-center opacity-80"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1B2932]/95 via-[#23333E]/80 via-45% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1B2932]/40 via-transparent to-black/25 pointer-events-none" />
-        </div>
+        <HeroImageBackdrop
+          src="/images/hero-architecture.jpg"
+          alt="University architecture"
+          priority
+        />
 
         <div className="relative z-10 max-w-[1280px] mx-auto space-y-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold tracking-wider uppercase text-white/90">
@@ -167,12 +162,18 @@ export default function HowItWorksPage() {
                 We understand that privacy is paramount. Our specialists use secure, dedicated connections matching your school&apos;s geographic location, preventing unexpected location flags on university LMS portals. Your personal data is never shared with third parties.
               </p>
             </div>
-            <div className="lg:col-span-5 relative h-64 rounded-2xl overflow-hidden border border-white/10">
-              <Image
+            <div className="lg:col-span-5">
+              <AnimatedImageCard
                 src="/images/student-study-2.jpg"
                 alt="Student studying with privacy and ease"
-                fill
-                className="object-cover"
+                aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
+                badge={{
+                  text: "Encrypted Regional Login Active",
+                  dotColor: "bg-emerald-400",
+                  pulse: true,
+                  position: "bottom-left",
+                }}
+                secondaryBadge="Privacy Shield"
               />
             </div>
           </div>
