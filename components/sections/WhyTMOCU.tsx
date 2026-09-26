@@ -14,7 +14,7 @@ const reasons = [
   },
   {
     number: "02",
-    title: "Vetted Degree-Holding Specialists",
+    title: "Vetted Degree Holding Specialists",
     subtitle: "Expertise across 50+ undergraduate and graduate fields.",
     description:
       "We do not rely on generic automated tools. Every subject is assigned to a qualified specialist with verified master's or doctoral credentials in your specific discipline.",
