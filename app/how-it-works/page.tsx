@@ -32,7 +32,7 @@ const steps = [
     description:
       "We pair your course with a verified academic specialist holding advanced credentials in your specific discipline (e.g. Master of Science in Nursing, MBA, Computer Science MS).",
     details: [
-      "Rigorous subject-matter qualification check",
+      "Rigorous subject matter qualification check",
       "Familiarity with your LMS portal (Canvas, Blackboard, D2L)",
       "Dedicated schedule blocking for all course milestones",
     ],
@@ -101,7 +101,7 @@ export default function HowItWorksPage() {
             How It Works
           </h1>
           <p className="text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed">
-            A seamless, stress-free 4 stage process designed to give you complete peace of mind throughout your academic semester.
+            A seamless, stress free 4 stage process designed to give you complete peace of mind throughout your academic semester.
           </p>
         </div>
       </section>
