@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 import PlatformMarquee from "@/components/ui/PlatformMarquee";
 import WhyTMOCU from "@/components/sections/WhyTMOCU";
+import Testimonials from "@/components/sections/Testimonials";
 import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
 import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
 
@@ -266,6 +267,9 @@ export default function HomeClient() {
 
           {/* ─── Why Choose Us Section ─── */}
           <WhyTMOCU />
+
+          {/* ─── Student Testimonials & Verified Reviews ─── */}
+          <Testimonials />
 
           {/* ─── High-Conversion Editorial Banner CTA ─── */}
           <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
