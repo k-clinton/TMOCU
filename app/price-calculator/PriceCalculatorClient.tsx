@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ChevronRight, ChevronLeft, Check, UploadCloud } from "lucide-react";
+import { ChevronRight, ChevronLeft, Check, UploadCloud, ShieldCheck, Clock, Award } from "lucide-react";
 
 type FormData = {
   subject: string;
@@ -55,7 +55,7 @@ type FormData = {
 };
 
 const INITIAL_DATA: FormData = {
-  subject: "", educationLevel: "", selfPaced: "", completionWeeks: "", durationWeeks: "0", courseStarted: "",
+  subject: "", educationLevel: "", selfPaced: "", completionWeeks: "", durationWeeks: "8", courseStarted: "",
   services: [],
   discussionParticipation: "", discussionWeekly: "", discussionMinWords: "", discussionPeerResponses: "", discussionPeerMinWords: "",
   examsRequired: "", examsRemaining: "", examsTotal: "", examsAvgQuestions: "", examsProctored: "", examsRespondus: "",
@@ -75,7 +75,7 @@ const SUBJECTS = [
 const EDUCATION_LEVELS = ["Associate Degree", "Bachelor's Degree", "Master's Degree", "Doctoral Degree", "Other"];
 const SERVICES = [
   "Take my entire class", "Complete my writing assignments", "Write my discussion posts", 
-  "Take my exams/quizzes/tests", "Complete my laboratory exercises/games/simulations?"
+  "Take my exams/quizzes/tests", "Complete my laboratory exercises/games/simulations"
 ];
 
 export default function PriceCalculatorClient() {
@@ -90,8 +90,8 @@ export default function PriceCalculatorClient() {
     }));
   };
 
-  const nextStep = () => setStep(s => s + 1);
-  const prevStep = () => setStep(s => s - 1);
+  const nextStep = () => setStep(s => Math.min(s + 1, 11));
+  const prevStep = () => setStep(s => Math.max(s - 1, 1));
 
   // --------------------------------------------------------------------------
   // TODO: PLACEHOLDERS FOR PRICING LOGIC
@@ -100,15 +100,16 @@ export default function PriceCalculatorClient() {
   const { totalPrice, weeklyPrice } = useMemo(() => {
     let calculatedTotal = 0;
     
-    // Example logic to replace:
-    // if (data.subject === "Engineering") calculatedTotal += 50;
-    // if (data.educationLevel === "Master's Degree") calculatedTotal *= 1.5;
-    // if (data.examsRequired === "Yes") calculatedTotal += (Number(data.examsRemaining) * 40);
-    // ...
+    // Example logic placeholder:
+    if (data.services.length > 0) calculatedTotal += data.services.length * 75;
+    if (data.examsRequired === "Yes") calculatedTotal += (Number(data.examsRemaining) || 1) * 45;
+    if (data.quizzesRequired === "Yes") calculatedTotal += (Number(data.quizzesRemaining) || 1) * 25;
+    if (data.essaysRequired === "Yes") calculatedTotal += (Number(data.essaysRemaining) || 1) * 50;
 
+    const weeks = Number(data.durationWeeks) || 1;
     return { 
       totalPrice: calculatedTotal, 
-      weeklyPrice: data.durationWeeks ? (calculatedTotal / (Number(data.durationWeeks) || 1)) : 0 
+      weeklyPrice: weeks > 0 ? (calculatedTotal / weeks) : 0 
     };
   }, [data]);
 
@@ -116,28 +117,48 @@ export default function PriceCalculatorClient() {
     switch (step) {
       case 1:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">What subject do you need help with?</h2>
-            <select 
-              className="w-full p-4 rounded-xl border border-gray-200 bg-white"
-              value={data.subject}
-              onChange={e => updateData({ subject: e.target.value })}
-            >
-              <option value="" disabled>Select one...</option>
-              {SUBJECTS.map(s => <option key={s} value={s}>{s}</option>)}
-            </select>
+          <div className="space-y-4">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">What subject do you need help with?</h2>
+              <p className="text-xs text-text-secondary mt-1">Select the primary academic field of study.</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-[260px] overflow-y-auto pr-1">
+              {SUBJECTS.map(s => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => updateData({ subject: s })}
+                  className={`p-2.5 rounded-xl border text-xs font-medium text-left transition-all ${
+                    data.subject === s 
+                      ? 'border-charcoal bg-charcoal text-white shadow-sm' 
+                      : 'border-gray-200 bg-white hover:border-gray-300 text-charcoal'
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
           </div>
         );
+
       case 2:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Educational level of your course</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="space-y-4">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Educational level of your course</h2>
+              <p className="text-xs text-text-secondary mt-1">Choose the academic level for appropriate specialist assignment.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {EDUCATION_LEVELS.map(lvl => (
                 <button
                   key={lvl}
+                  type="button"
                   onClick={() => updateData({ educationLevel: lvl })}
-                  className={`p-4 rounded-xl border text-left transition-all ${data.educationLevel === lvl ? 'border-charcoal bg-charcoal text-white' : 'border-gray-200 bg-white hover:border-gray-300'}`}
+                  className={`p-3.5 rounded-xl border text-left text-xs sm:text-sm font-medium transition-all ${
+                    data.educationLevel === lvl 
+                      ? 'border-charcoal bg-charcoal text-white shadow-sm' 
+                      : 'border-gray-200 bg-white hover:border-gray-300 text-charcoal'
+                  }`}
                 >
                   {lvl}
                 </button>
@@ -145,278 +166,442 @@ export default function PriceCalculatorClient() {
             </div>
           </div>
         );
+
       case 3:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Course Timeline</h2>
-            <div className="space-y-4">
-              <label className="block text-sm font-semibold text-charcoal">Is the course self-paced? (e.g. StraighterLine)</label>
-              <div className="flex gap-4">
-                {['Yes', 'No'].map(opt => (
-                  <button key={opt} onClick={() => updateData({ selfPaced: opt })} className={`flex-1 p-3 rounded-xl border transition-all ${data.selfPaced === opt ? 'border-charcoal bg-charcoal text-white' : 'border-gray-200 bg-white hover:bg-gray-50'}`}>{opt}</button>
-                ))}
+          <div className="space-y-3.5">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Course Timeline</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Specify pacing and estimated durations.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-semibold text-charcoal mb-1.5">Is the course self-paced?</label>
+                <div className="flex gap-2">
+                  <YesNo val={data.selfPaced} setVal={v => updateData({ selfPaced: v })} />
+                </div>
               </div>
-              
-              <label className="block text-sm font-semibold text-charcoal pt-4">Duration of your course in weeks</label>
-              <input type="range" min="0" max="20" value={data.durationWeeks} onChange={e => updateData({ durationWeeks: e.target.value })} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-charcoal" />
-              <div className="text-right font-bold text-charcoal">{data.durationWeeks} Weeks</div>
 
-              <label className="block text-sm font-semibold text-charcoal pt-4">Desired completion date in weeks</label>
-              <input type="number" placeholder="E.g. 8" value={data.completionWeeks} onChange={e => updateData({ completionWeeks: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200 bg-white" />
+              <div>
+                <label className="block text-xs font-semibold text-charcoal mb-1.5">Has your course started?</label>
+                <div className="flex gap-2">
+                  <YesNo val={data.courseStarted} setVal={v => updateData({ courseStarted: v })} />
+                </div>
+              </div>
 
-              <label className="block text-sm font-semibold text-charcoal pt-4">Has your course started?</label>
-              <div className="flex gap-4">
-                {['Yes', 'No'].map(opt => (
-                  <button key={opt} onClick={() => updateData({ courseStarted: opt })} className={`flex-1 p-3 rounded-xl border transition-all ${data.courseStarted === opt ? 'border-charcoal bg-charcoal text-white' : 'border-gray-200 bg-white hover:bg-gray-50'}`}>{opt}</button>
-                ))}
+              <div>
+                <div className="flex justify-between items-center mb-1">
+                  <label className="text-xs font-semibold text-charcoal">Course duration (weeks)</label>
+                  <span className="text-xs font-bold text-gold">{data.durationWeeks || 0} Weeks</span>
+                </div>
+                <input 
+                  type="range" 
+                  min="1" 
+                  max="20" 
+                  value={data.durationWeeks} 
+                  onChange={e => updateData({ durationWeeks: e.target.value })} 
+                  className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-charcoal" 
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-charcoal mb-1">Desired completion (weeks)</label>
+                <input 
+                  type="number" 
+                  placeholder="e.g. 8" 
+                  value={data.completionWeeks} 
+                  onChange={e => updateData({ completionWeeks: e.target.value })} 
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-gray-200 bg-white" 
+                />
               </div>
             </div>
           </div>
         );
+
       case 4:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">What type of service do you need?</h2>
-            <div className="grid gap-3">
-              {SERVICES.map(srv => (
-                <button
-                  key={srv}
-                  onClick={() => toggleService(srv)}
-                  className={`p-4 rounded-xl border text-left flex items-center justify-between transition-all ${data.services.includes(srv) ? 'border-charcoal bg-charcoal text-white' : 'border-gray-200 bg-white hover:bg-gray-50'}`}
-                >
-                  <span>{srv}</span>
-                  {data.services.includes(srv) && <Check size={18} />}
-                </button>
-              ))}
+          <div className="space-y-3.5">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">What type of service do you need?</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Select all that apply to your coursework requirements.</p>
+            </div>
+            <div className="grid gap-2">
+              {SERVICES.map(srv => {
+                const selected = data.services.includes(srv);
+                return (
+                  <button
+                    key={srv}
+                    type="button"
+                    onClick={() => toggleService(srv)}
+                    className={`p-3 rounded-xl border text-left flex items-center justify-between transition-all ${
+                      selected 
+                        ? 'border-charcoal bg-charcoal text-white shadow-sm' 
+                        : 'border-gray-200 bg-white hover:border-gray-300 text-charcoal'
+                    }`}
+                  >
+                    <span className="text-xs font-medium">{srv}</span>
+                    <span className={`w-4 h-4 rounded-md flex items-center justify-center border text-[10px] ${
+                      selected ? 'bg-gold border-gold text-white' : 'border-gray-300'
+                    }`}>
+                      {selected && <Check size={12} />}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         );
+
       case 5:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Discussion Posts</h2>
-            <label className="block text-sm font-semibold text-charcoal">Is participation in discussion posts a requirement?</label>
-            <div className="flex gap-4 mb-4">
-              <YesNo val={data.discussionParticipation} setVal={v => updateData({discussionParticipation: v})} />
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Discussion Posts</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Participation and peer response requirements.</p>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-charcoal mb-1.5">Is discussion participation required?</label>
+              <div className="flex gap-2 max-w-xs">
+                <YesNo val={data.discussionParticipation} setVal={v => updateData({ discussionParticipation: v })} />
+              </div>
             </div>
             {data.discussionParticipation === 'Yes' && (
-              <div className="space-y-4 animate-in fade-in pt-2">
-                <label className="block text-sm font-semibold text-charcoal">Is weekly submission required?</label>
-                <div className="flex gap-4"><YesNo val={data.discussionWeekly} setVal={v => updateData({discussionWeekly: v})} /></div>
-                
-                <label className="block text-sm font-semibold text-charcoal">Min required number of words for each post?</label>
-                <input type="number" value={data.discussionMinWords} onChange={e => updateData({ discussionMinWords: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-                
-                <label className="block text-sm font-semibold text-charcoal">How many peer responses required for each discussion?</label>
-                <input type="number" value={data.discussionPeerResponses} onChange={e => updateData({ discussionPeerResponses: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-
-                <label className="block text-sm font-semibold text-charcoal">Min word count for one peer response?</label>
-                <input type="number" value={data.discussionPeerMinWords} onChange={e => updateData({ discussionPeerMinWords: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 animate-in fade-in">
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Weekly submission required?</label>
+                  <div className="flex gap-2"><YesNo val={data.discussionWeekly} setVal={v => updateData({ discussionWeekly: v })} /></div>
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Min words per post?</label>
+                  <input type="number" placeholder="e.g. 250" value={data.discussionMinWords} onChange={e => updateData({ discussionMinWords: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Peer responses per post?</label>
+                  <input type="number" placeholder="e.g. 2" value={data.discussionPeerResponses} onChange={e => updateData({ discussionPeerResponses: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Min words per peer reply?</label>
+                  <input type="number" placeholder="e.g. 100" value={data.discussionPeerMinWords} onChange={e => updateData({ discussionPeerMinWords: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
               </div>
             )}
           </div>
         );
+
       case 6:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Exams</h2>
-            <label className="block text-sm font-semibold text-charcoal">Are you required to take exams?</label>
-            <div className="flex gap-4 mb-4"><YesNo val={data.examsRequired} setVal={v => updateData({examsRequired: v})} /></div>
-            
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Exams & Tests</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Details on upcoming midterm/final exam coverage.</p>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-charcoal mb-1.5">Are you required to take exams?</label>
+              <div className="flex gap-2 max-w-xs">
+                <YesNo val={data.examsRequired} setVal={v => updateData({ examsRequired: v })} />
+              </div>
+            </div>
             {data.examsRequired === 'Yes' && (
-              <div className="space-y-4 animate-in fade-in pt-2">
-                <label className="block text-sm font-semibold text-charcoal">Remaining number of exams?</label>
-                <input type="number" value={data.examsRemaining} onChange={e => updateData({ examsRemaining: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-                
-                <label className="block text-sm font-semibold text-charcoal">Total number of exams in course?</label>
-                <input type="number" value={data.examsTotal} onChange={e => updateData({ examsTotal: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-                
-                <label className="block text-sm font-semibold text-charcoal">Average number of questions per exam?</label>
-                <input type="number" value={data.examsAvgQuestions} onChange={e => updateData({ examsAvgQuestions: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-
-                <label className="block text-sm font-semibold text-charcoal">Are exams proctored?</label>
-                <div className="flex gap-4"><YesNo val={data.examsProctored} setVal={v => updateData({examsProctored: v})} /></div>
-
-                <label className="block text-sm font-semibold text-charcoal">Required to use Respondus Lockdown Browser?</label>
-                <div className="flex gap-4"><YesNo val={data.examsRespondus} setVal={v => updateData({examsRespondus: v})} /></div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 animate-in fade-in">
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Remaining exams?</label>
+                  <input type="number" placeholder="e.g. 2" value={data.examsRemaining} onChange={e => updateData({ examsRemaining: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Total exams?</label>
+                  <input type="number" placeholder="e.g. 4" value={data.examsTotal} onChange={e => updateData({ examsTotal: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Avg questions?</label>
+                  <input type="number" placeholder="e.g. 50" value={data.examsAvgQuestions} onChange={e => updateData({ examsAvgQuestions: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Proctored?</label>
+                  <div className="flex gap-2"><YesNo val={data.examsProctored} setVal={v => updateData({ examsProctored: v })} /></div>
+                </div>
+                <div className="col-span-2">
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Respondus Lockdown?</label>
+                  <div className="flex gap-2"><YesNo val={data.examsRespondus} setVal={v => updateData({ examsRespondus: v })} /></div>
+                </div>
               </div>
             )}
           </div>
         );
+
       case 7:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Quizzes</h2>
-            <label className="block text-sm font-semibold text-charcoal">Are you required to take quizzes?</label>
-            <div className="flex gap-4 mb-4"><YesNo val={data.quizzesRequired} setVal={v => updateData({quizzesRequired: v})} /></div>
-            
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Quizzes</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Frequent quiz assessments and formats.</p>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-charcoal mb-1.5">Are you required to take quizzes?</label>
+              <div className="flex gap-2 max-w-xs">
+                <YesNo val={data.quizzesRequired} setVal={v => updateData({ quizzesRequired: v })} />
+              </div>
+            </div>
             {data.quizzesRequired === 'Yes' && (
-              <div className="space-y-4 animate-in fade-in pt-2">
-                <label className="block text-sm font-semibold text-charcoal">Remaining number of quizzes?</label>
-                <input type="number" value={data.quizzesRemaining} onChange={e => updateData({ quizzesRemaining: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-                
-                <label className="block text-sm font-semibold text-charcoal">Total quizzes to complete?</label>
-                <input type="number" value={data.quizzesTotal} onChange={e => updateData({ quizzesTotal: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-                
-                <label className="block text-sm font-semibold text-charcoal">Average number of questions per quiz?</label>
-                <input type="number" value={data.quizzesAvgQuestions} onChange={e => updateData({ quizzesAvgQuestions: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-
-                <label className="block text-sm font-semibold text-charcoal">Are quizzes proctored?</label>
-                <div className="flex gap-4"><YesNo val={data.quizzesProctored} setVal={v => updateData({quizzesProctored: v})} /></div>
-
-                <label className="block text-sm font-semibold text-charcoal">Required to use Respondus Lockdown Browser?</label>
-                <div className="flex gap-4"><YesNo val={data.quizzesRespondus} setVal={v => updateData({quizzesRespondus: v})} /></div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 animate-in fade-in">
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Remaining quizzes?</label>
+                  <input type="number" placeholder="e.g. 5" value={data.quizzesRemaining} onChange={e => updateData({ quizzesRemaining: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Total quizzes?</label>
+                  <input type="number" placeholder="e.g. 10" value={data.quizzesTotal} onChange={e => updateData({ quizzesTotal: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Avg questions?</label>
+                  <input type="number" placeholder="e.g. 20" value={data.quizzesAvgQuestions} onChange={e => updateData({ quizzesAvgQuestions: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Proctored?</label>
+                  <div className="flex gap-2"><YesNo val={data.quizzesProctored} setVal={v => updateData({ quizzesProctored: v })} /></div>
+                </div>
+                <div className="col-span-2">
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Respondus Lockdown?</label>
+                  <div className="flex gap-2"><YesNo val={data.quizzesRespondus} setVal={v => updateData({ quizzesRespondus: v })} /></div>
+                </div>
               </div>
             )}
           </div>
         );
+
       case 8:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Simulations & Lab Exercises</h2>
-            <label className="block text-sm font-semibold text-charcoal">Are there simulation-based assignments included?</label>
-            <div className="flex gap-4 mb-4"><YesNo val={data.simulationsIncluded} setVal={v => updateData({simulationsIncluded: v})} /></div>
-            
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Simulations & Labs</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Interactive software exercises, game simulations, and labs.</p>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-charcoal mb-1.5">Are simulation-based assignments included?</label>
+              <div className="flex gap-2 max-w-xs">
+                <YesNo val={data.simulationsIncluded} setVal={v => updateData({ simulationsIncluded: v })} />
+              </div>
+            </div>
             {data.simulationsIncluded === 'Yes' && (
-              <div className="space-y-4 animate-in fade-in pt-2">
-                <label className="block text-sm font-semibold text-charcoal">How many simulation-based assignments required?</label>
-                <input type="number" value={data.simulationsCount} onChange={e => updateData({ simulationsCount: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
+              <div className="pt-2 animate-in fade-in max-w-sm">
+                <label className="block text-xs font-semibold text-charcoal mb-1">Number of simulation assignments?</label>
+                <input type="number" placeholder="e.g. 4" value={data.simulationsCount} onChange={e => updateData({ simulationsCount: e.target.value })} className="w-full px-3 py-2 text-xs rounded-xl border border-gray-200" />
               </div>
             )}
           </div>
         );
+
       case 9:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Writing Assignments / Essays</h2>
-            <label className="block text-sm font-semibold text-charcoal">Are you required to complete writing assignments/essays?</label>
-            <div className="flex gap-4 mb-4"><YesNo val={data.essaysRequired} setVal={v => updateData({essaysRequired: v})} /></div>
-            
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Writing & Essays</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Term papers, case studies, and research essays.</p>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-charcoal mb-1.5">Are you required to write essays/papers?</label>
+              <div className="flex gap-2 max-w-xs">
+                <YesNo val={data.essaysRequired} setVal={v => updateData({ essaysRequired: v })} />
+              </div>
+            </div>
             {data.essaysRequired === 'Yes' && (
-              <div className="space-y-4 animate-in fade-in pt-2">
-                <label className="block text-sm font-semibold text-charcoal">How many writing assignments left?</label>
-                <input type="number" value={data.essaysRemaining} onChange={e => updateData({ essaysRemaining: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-                
-                <label className="block text-sm font-semibold text-charcoal">Total essay assignments required?</label>
-                <input type="number" value={data.essaysTotal} onChange={e => updateData({ essaysTotal: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-                
-                <label className="block text-sm font-semibold text-charcoal">Average word count for essay assignments?</label>
-                <input type="number" value={data.essaysAvgWords} onChange={e => updateData({ essaysAvgWords: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 animate-in fade-in">
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Essays remaining?</label>
+                  <input type="number" placeholder="e.g. 3" value={data.essaysRemaining} onChange={e => updateData({ essaysRemaining: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Total essay count?</label>
+                  <input type="number" placeholder="e.g. 5" value={data.essaysTotal} onChange={e => updateData({ essaysTotal: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-semibold text-charcoal mb-1">Avg word count?</label>
+                  <input type="number" placeholder="e.g. 1500" value={data.essaysAvgWords} onChange={e => updateData({ essaysAvgWords: e.target.value })} className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" />
+                </div>
               </div>
             )}
           </div>
         );
+
       case 10:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Group Activities</h2>
-            <label className="block text-sm font-semibold text-charcoal">Is participation in group-based activities a requirement?</label>
-            <div className="flex gap-4"><YesNo val={data.groupActivities} setVal={v => updateData({groupActivities: v})} /></div>
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Group Activities</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Collaboration requirements with other students.</p>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-charcoal mb-1.5">Is participation in group-based activities required?</label>
+              <div className="flex gap-2 max-w-xs">
+                <YesNo val={data.groupActivities} setVal={v => updateData({ groupActivities: v })} />
+              </div>
+            </div>
           </div>
         );
+
       case 11:
         return (
-          <div className="space-y-6 animate-in fade-in">
-            <h2 className="text-2xl font-bold text-charcoal">Final Details</h2>
-            
-            <label className="block text-sm font-semibold text-charcoal">Additional Information</label>
-            <textarea placeholder="Provide any additional relevant information..." value={data.additionalInfo} onChange={e => updateData({ additionalInfo: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200 min-h-[100px]" />
-            
-            <label className="block text-sm font-semibold text-charcoal">Upload Course Syllabus</label>
-            <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 flex flex-col items-center justify-center text-gray-500 hover:bg-gray-50 transition cursor-pointer">
-              <UploadCloud size={32} className="mb-2" />
-              <p className="text-sm">Drop files here or click to browse</p>
-              <p className="text-xs mt-1 opacity-70">Max size: 30MB</p>
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg sm:text-xl font-bold text-charcoal">Final Details & Contact</h2>
+              <p className="text-xs text-text-secondary mt-0.5">Provide contact info to receive your quote confirmation.</p>
             </div>
-
-            <label className="block text-sm font-semibold text-charcoal pt-4">Email Address</label>
-            <input type="email" value={data.email} onChange={e => updateData({ email: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
-            
-            <label className="block text-sm font-semibold text-charcoal">Phone Number</label>
-            <input type="tel" value={data.phone} onChange={e => updateData({ phone: e.target.value })} className="w-full p-4 rounded-xl border border-gray-200" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div>
+                <label className="block text-[11px] font-semibold text-charcoal mb-1">Email Address *</label>
+                <input 
+                  type="email" 
+                  placeholder="student@university.edu" 
+                  value={data.email} 
+                  onChange={e => updateData({ email: e.target.value })} 
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-gray-200" 
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-semibold text-charcoal mb-1">Phone Number (Optional)</label>
+                <input 
+                  type="tel" 
+                  placeholder="+1 (555) 000-0000" 
+                  value={data.phone} 
+                  onChange={e => updateData({ phone: e.target.value })} 
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-gray-200" 
+                />
+              </div>
+              <div className="col-span-1 sm:col-span-2">
+                <label className="block text-[11px] font-semibold text-charcoal mb-1">Additional Notes</label>
+                <textarea 
+                  rows={2} 
+                  placeholder="Any specific instructions, portal info, or syllabus details..." 
+                  value={data.additionalInfo} 
+                  onChange={e => updateData({ additionalInfo: e.target.value })} 
+                  className="w-full px-3 py-1.5 text-xs rounded-xl border border-gray-200" 
+                />
+              </div>
+            </div>
           </div>
         );
+
       default:
         return null;
     }
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-      {/* Wizard Content */}
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-start">
+      {/* Wizard Form Section */}
       <div className="lg:col-span-8">
-        <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 md:p-10">
-          <div className="flex items-center justify-between mb-8">
-            <div className="text-sm font-bold text-gold tracking-widest uppercase">
-              Step {step} of 11
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200/80 shadow-sm p-5 sm:p-6 flex flex-col justify-between min-h-[360px] sm:min-h-[380px]">
+          {/* Top Progress */}
+          <div>
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-100">
+              <span className="text-[11px] font-bold text-gold tracking-widest uppercase">
+                Step {step} of 11
+              </span>
+              <div className="flex gap-1">
+                {Array.from({ length: 11 }).map((_, i) => (
+                  <div 
+                    key={i} 
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i + 1 === step 
+                        ? 'bg-gold w-5' 
+                        : i + 1 < step 
+                        ? 'bg-charcoal w-2.5' 
+                        : 'bg-gray-200 w-2.5'
+                    }`} 
+                  />
+                ))}
+              </div>
             </div>
-            <div className="flex gap-1">
-              {Array.from({length: 11}).map((_, i) => (
-                <div key={i} className={`h-1.5 w-4 rounded-full transition-all ${i + 1 === step ? 'bg-gold w-8' : i + 1 < step ? 'bg-charcoal' : 'bg-gray-200'}`} />
-              ))}
+
+            {/* Dynamic Step Content */}
+            <div className="py-1">
+              {renderStepContent()}
             </div>
-          </div>
-          
-          <div className="min-h-[400px]">
-            {renderStepContent()}
           </div>
 
-          <div className="flex items-center justify-between mt-10 pt-6 border-t border-gray-100">
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-between mt-4 pt-3.5 border-t border-gray-100">
             <button 
+              type="button"
               onClick={prevStep} 
               disabled={step === 1}
-              className="flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-charcoal hover:bg-gray-100 disabled:opacity-30 transition"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-charcoal hover:bg-gray-100 disabled:opacity-30 disabled:pointer-events-none transition"
             >
-              <ChevronLeft size={18} /> Back
+              <ChevronLeft size={16} /> Back
             </button>
             
             {step < 11 ? (
               <button 
+                type="button"
                 onClick={nextStep} 
-                className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-charcoal text-white hover:bg-charcoal/90 transition shadow-md"
+                className="flex items-center gap-1.5 px-5 py-2 rounded-xl text-xs font-bold bg-charcoal text-white hover:bg-charcoal/90 transition shadow-sm"
               >
-                Next <ChevronRight size={18} />
+                Next <ChevronRight size={16} />
               </button>
             ) : (
               <button 
-                className="flex items-center gap-2 px-8 py-3 rounded-xl font-bold bg-gold text-white hover:bg-gold/90 transition shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                type="button"
+                className="flex items-center gap-1.5 px-6 py-2 rounded-xl text-xs font-bold bg-gold text-white hover:bg-gold/90 transition shadow-md hover:shadow-lg"
               >
-                Submit Request <Check size={18} />
+                Submit Estimate <Check size={16} />
               </button>
             )}
           </div>
         </div>
       </div>
 
-      {/* Sidebar Summary */}
-      <div className="lg:col-span-4 relative">
-        <div className="sticky top-32 bg-[#F8F9FA] rounded-[32px] border border-[#EAECEF] p-8 shadow-sm">
-          <span className="overline-tag mb-4 inline-block">ESTIMATED QUOTE</span>
-          
-          <div className="flex items-end gap-2 mb-2">
-            <span className="text-4xl font-black text-charcoal">${totalPrice.toFixed(2)}</span>
-            <span className="text-xs font-bold text-text-secondary mb-1 uppercase tracking-wider">USD Total</span>
-          </div>
-          
-          <div className="flex items-end gap-2 mb-8">
-            <span className="text-2xl font-bold text-charcoal/70">${weeklyPrice.toFixed(2)}</span>
-            <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">USD / Week</span>
+      {/* Sidebar Summary Section */}
+      <div className="lg:col-span-4">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200/80 p-5 shadow-sm space-y-4">
+          <div className="flex items-center justify-between border-b border-gray-100 pb-2.5">
+            <span className="text-[10px] font-bold tracking-widest text-text-secondary uppercase">
+              Live Estimate
+            </span>
+            <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+              Guaranteed Quote
+            </span>
           </div>
 
-          <div className="space-y-3 mb-6">
-            <SummaryRow label="Subject" value={data.subject || "—"} />
-            <SummaryRow label="Level" value={data.educationLevel || "—"} />
-            <SummaryRow label="Duration" value={data.durationWeeks ? `${data.durationWeeks} Weeks` : "—"} />
-            <div className="py-2 border-b border-gray-200">
-              <span className="block text-xs text-text-secondary font-medium mb-1">Services Selected:</span>
-              <span className="block text-sm font-bold text-charcoal truncate">
-                {data.services.length > 0 ? data.services.join(', ') : "None"}
+          <div className="bg-[#F8F9FA] rounded-xl p-3 border border-gray-100">
+            <div className="flex items-baseline justify-between mb-1">
+              <span className="text-2xl sm:text-3xl font-black text-charcoal">
+                ${totalPrice.toFixed(2)}
+              </span>
+              <span className="text-[10px] font-bold text-text-secondary uppercase">USD Total</span>
+            </div>
+            <div className="flex items-baseline justify-between text-xs">
+              <span className="font-semibold text-charcoal/70">
+                ${weeklyPrice.toFixed(2)} / week
+              </span>
+              <span className="text-[10px] text-text-secondary">({data.durationWeeks || 0} wks)</span>
+            </div>
+          </div>
+
+          {/* Quick Selection Summary */}
+          <div className="space-y-1.5 text-xs">
+            <SummaryRow label="Subject" value={data.subject || "Not selected"} />
+            <SummaryRow label="Level" value={data.educationLevel || "Not selected"} />
+            <div className="flex items-center justify-between py-1 border-b border-gray-100 text-xs">
+              <span className="text-[11px] text-text-secondary">Services</span>
+              <span className="text-[11px] font-semibold text-charcoal truncate max-w-[130px]" title={data.services.join(", ")}>
+                {data.services.length > 0 ? `${data.services.length} selected` : "None"}
               </span>
             </div>
           </div>
-          
-          <div className="bg-yellow-50 border border-yellow-100 rounded-xl p-4 text-xs leading-relaxed text-yellow-800">
-            <strong>Configuration Needed:</strong> The final price calculation logic is pending your mathematical formula. The variables are ready in <code>PriceCalculatorClient.tsx</code>.
+
+          {/* Trust Badges */}
+          <div className="pt-1 grid grid-cols-3 gap-1 text-center border-t border-gray-100 text-[9px] text-text-secondary">
+            <div className="flex flex-col items-center gap-0.5 p-1 rounded bg-[#F8F9FA]">
+              <ShieldCheck size={14} className="text-charcoal" />
+              <span>100% Private</span>
+            </div>
+            <div className="flex flex-col items-center gap-0.5 p-1 rounded bg-[#F8F9FA]">
+              <Clock size={14} className="text-charcoal" />
+              <span>24/7 Delivery</span>
+            </div>
+            <div className="flex flex-col items-center gap-0.5 p-1 rounded bg-[#F8F9FA]">
+              <Award size={14} className="text-charcoal" />
+              <span>Grade A/B</span>
+            </div>
           </div>
         </div>
       </div>
@@ -430,8 +615,13 @@ function YesNo({ val, setVal }: { val: string; setVal: (v: string) => void }) {
       {['Yes', 'No'].map(opt => (
         <button 
           key={opt} 
+          type="button"
           onClick={() => setVal(opt)} 
-          className={`flex-1 p-3 rounded-xl border transition-all ${val === opt ? 'border-charcoal bg-charcoal text-white shadow-md' : 'border-gray-200 bg-white hover:bg-gray-50'}`}
+          className={`flex-1 py-1.5 px-3 rounded-lg border text-xs font-semibold transition-all ${
+            val === opt 
+              ? 'border-charcoal bg-charcoal text-white shadow-sm' 
+              : 'border-gray-200 bg-white hover:border-gray-300 text-charcoal'
+          }`}
         >
           {opt}
         </button>
@@ -442,9 +632,11 @@ function YesNo({ val, setVal }: { val: string; setVal: (v: string) => void }) {
 
 function SummaryRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between py-2 border-b border-gray-200 last:border-0">
-      <span className="text-xs text-text-secondary font-medium">{label}</span>
-      <span className="text-sm font-bold text-charcoal truncate max-w-[150px]" title={value}>{value}</span>
+    <div className="flex items-center justify-between py-1 border-b border-gray-100 last:border-0 text-xs">
+      <span className="text-[11px] text-text-secondary">{label}</span>
+      <span className="text-[11px] font-semibold text-charcoal truncate max-w-[140px]" title={value}>
+        {value}
+      </span>
     </div>
   );
 }
