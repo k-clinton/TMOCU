@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const mainPages = [
   { label: "Overview", href: "/" },
@@ -17,6 +20,12 @@ const serviceDisciplines = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === "/price-calculator") {
+    return null;
+  }
+
   return (
     <footer className="bg-charcoal text-white pt-20 pb-12 border-t border-white/10" role="contentinfo">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
