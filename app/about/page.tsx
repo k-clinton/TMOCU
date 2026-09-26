@@ -66,7 +66,7 @@ export default function AboutPage() {
                 Bridging the Gap Between Career Demands and Academic Goals
               </h2>
               <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
-                Today&apos;s higher education landscape is filled with non-traditional students: healthcare workers working 12-hour hospital shifts, full time working parents completing online degrees, and professionals pursuing career advancing MBAs.
+                Today&apos;s higher education landscape is filled with non traditional students: healthcare workers working 12 hour hospital shifts, full time working parents completing online degrees, and professionals pursuing career advancing MBAs.
               </p>
               <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                 We believe that life responsibilities should not derail your academic aspirations. TMOCU provides the dedicated support structure you need to maintain stellar grades while keeping your career and personal life on track.
