@@ -13,7 +13,7 @@ const metricCards = [
     number: "98.4%",
     label: "GRADE TARGETS MET",
     description:
-      "Consistent high-tier academic results across quizzes, assignments, and comprehensive term coursework.",
+      "Consistent high tier academic results across quizzes, assignments, and comprehensive term coursework.",
   },
   {
     number: "500+",
@@ -25,7 +25,7 @@ const metricCards = [
     number: "100%",
     label: "CONFIDENTIAL & SECURE",
     description:
-      "End-to-end privacy guarantees, dedicated IP matching, and discreet academic coordination.",
+      "End to end privacy guarantees, dedicated IP matching, and discreet academic coordination.",
   },
 ];
 
@@ -206,7 +206,7 @@ export default function HomeClient() {
                 Execute
               </h2>
               <p className="text-lg sm:text-xl font-medium text-charcoal leading-snug">
-                Subject-matter specialists completing your coursework with rigor.
+                Subject matter specialists completing your coursework with rigor.
               </p>
               <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                 Whether you need assistance in quantitative business analysis, nursing pharmacology, computer science coding labs, or humanities research papers, our vetted academic specialists tackle the material according to your rubric.
