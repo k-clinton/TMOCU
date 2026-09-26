@@ -23,7 +23,7 @@ const pillars = [
   },
   {
     title: "Punctual Delivery",
-    desc: "We prioritize early turnaround so you never suffer penalty deductions or last-minute deadline anxiety.",
+    desc: "We prioritize early turnaround so you never suffer penalty deductions or last minute deadline anxiety.",
   },
   {
     title: "Continuous Collaboration",
@@ -50,7 +50,7 @@ export default function AboutPage() {
             Empowering Higher Education Students
           </h1>
           <p className="text-base sm:text-lg text-white/80 max-w-2xl leading-relaxed">
-            TakeMyOnlineClassUSA (TMOCU) was founded to provide dependable, high-caliber academic management for modern students navigating demanding workloads.
+            TakeMyOnlineClassUSA (TMOCU) was founded to provide dependable, high caliber academic management for modern students navigating demanding workloads.
           </p>
         </div>
       </section>
