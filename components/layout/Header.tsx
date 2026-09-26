@@ -36,6 +36,10 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
+  if (pathname === "/price-calculator") {
+    return null;
+  }
+
   return (
     <>
       <header
