@@ -90,10 +90,10 @@ export default function Header() {
         {/* Right: CTA Button & Mobile Trigger */}
         <div className="flex items-center gap-2 pr-1">
           <Link
-            href="/contact"
+            href="/price-calculator"
             className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold px-4 py-1.5 rounded-full bg-white text-charcoal hover:bg-gold hover:text-white transition-all duration-200 shadow-sm"
           >
-            <span>Get Started</span>
+            <span>Get a quote</span>
             <span className="w-1.5 h-1.5 rounded-full bg-gold" />
           </Link>
 
@@ -147,11 +147,11 @@ export default function Header() {
           })}
           <div className="pt-4 mt-2 border-t border-white/10">
             <Link
-              href="/contact"
+              href="/price-calculator"
               onClick={() => setMobileOpen(false)}
               className="w-full flex items-center justify-center py-3 bg-white text-charcoal rounded-xl font-semibold text-sm hover:bg-gold hover:text-white transition-colors"
             >
-              Get Free Class Quote
+              Get a quote
             </Link>
           </div>
         </div>
