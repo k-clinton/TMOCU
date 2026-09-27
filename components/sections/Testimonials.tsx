@@ -90,25 +90,32 @@ export default function Testimonials() {
     <section
       id="testimonials"
       ref={ref}
-      className="py-24 lg:py-32 border-t border-border-subtle"
+      className="relative bg-gradient-to-br from-[#1B2932] via-[#23333E] to-[#1E2B34] text-white rounded-[32px] sm:rounded-[40px] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 lg:px-14 overflow-hidden shadow-2xl border border-white/10"
       aria-labelledby="testimonials-heading"
     >
-      <div className="max-w-[1280px] mx-auto">
+      {/* Atmospheric Ambient Glow Layers matching Hero overlay */}
+      <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gold/10 blur-3xl pointer-events-none animate-pulse-glow" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-[#4a6778]/25 blur-3xl pointer-events-none" />
+
+      <div className="relative z-10 max-w-[1280px] mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="overline-tag">STUDENT SUCCESS & REVIEWS</span>
+        <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-18">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-semibold tracking-wider uppercase text-gold">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+            STUDENT SUCCESS & REVIEWS
+          </span>
           <h2
             id="testimonials-heading"
-            className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-charcoal tracking-tight mt-3 mb-4"
+            className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-white tracking-tight mt-4 mb-4 leading-tight"
           >
             Proven Results Across 500+ Online Courses
           </h2>
-          <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
+          <p className="text-sm sm:text-base text-white/80 leading-relaxed max-w-2xl mx-auto">
             Read verified experiences from working professionals, adult learners, and full-time university students who achieved their academic goals with TMOCU.
           </p>
 
           {/* Social Proof Aggregate Badges */}
-          <div className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-semibold text-charcoal">
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-semibold text-white/90">
             <div className="flex items-center gap-2">
               <div className="flex text-gold">
                 {[...Array(5)].map((_, i) => (
@@ -118,12 +125,12 @@ export default function Testimonials() {
               <span>4.9 / 5.0 Star Rating</span>
             </div>
 
-            <div className="flex items-center gap-1.5 text-emerald-600">
+            <div className="flex items-center gap-1.5 text-emerald-400">
               <CheckCircle2 size={16} />
               <span>98.4% Target Grade Success</span>
             </div>
 
-            <div className="flex items-center gap-1.5 text-charcoal/80">
+            <div className="flex items-center gap-1.5 text-white/85">
               <ShieldCheck size={16} className="text-gold" />
               <span>100% Confidential & Private</span>
             </div>
@@ -135,18 +142,18 @@ export default function Testimonials() {
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className={`bg-[#F8F9FA] rounded-[28px] p-7 sm:p-8 border border-[#EAECEF] hover:border-charcoal/20 hover:bg-white transition-all duration-300 hover:shadow-lg flex flex-col justify-between relative group ${
+              className={`bg-white/[0.06] backdrop-blur-md rounded-[28px] p-7 sm:p-8 border border-white/10 hover:border-gold/40 hover:bg-white/[0.1] transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 flex flex-col justify-between relative group ${
                 isVisible ? "animate-fade-in-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${0.08 + index * 0.08}s` }}
             >
               <div>
                 {/* Top Discipline Tag & Grade Outcome */}
-                <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-gray-200/70">
+                <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/10">
                   <span className="text-[11px] font-bold text-gold uppercase tracking-wider truncate">
                     {item.discipline}
                   </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 text-[10px] font-bold tracking-tight whitespace-nowrap">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/25 text-emerald-400 text-[10px] font-bold tracking-tight whitespace-nowrap">
                     {item.outcome}
                   </span>
                 </div>
@@ -158,40 +165,40 @@ export default function Testimonials() {
                       <Star key={i} size={14} fill="currentColor" />
                     ))}
                   </div>
-                  <Quote size={20} className="text-charcoal/10 group-hover:text-gold/40 transition-colors" />
+                  <Quote size={20} className="text-white/20 group-hover:text-gold/60 transition-colors" />
                 </div>
 
                 {/* Narrative Quote */}
-                <p className="text-xs sm:text-sm text-charcoal/80 leading-relaxed font-normal mb-6">
+                <p className="text-xs sm:text-sm text-white/85 leading-relaxed font-normal mb-6">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 
               {/* Student Details & Platform Info */}
-              <div className="pt-4 border-t border-gray-200/70">
+              <div className="pt-4 border-t border-white/10">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-charcoal text-white flex items-center justify-center font-bold text-xs tracking-wider">
+                    <div className="w-9 h-9 rounded-full bg-gold text-[#1B2932] flex items-center justify-center font-bold text-xs tracking-wider shadow-sm">
                       {item.author.slice(0, 2)}
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-charcoal flex items-center gap-1.5">
+                      <div className="text-xs font-bold text-white flex items-center gap-1.5">
                         <span>{item.author}</span>
                         <span className="text-gold text-[10px]" title="Verified Student">✓</span>
                       </div>
-                      <div className="text-[11px] text-text-secondary">
+                      <div className="text-[11px] text-white/60">
                         {item.program}
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-3 flex items-center justify-between text-[10px] text-charcoal/50 font-medium">
+                <div className="mt-3 flex items-center justify-between text-[10px] text-white/50 font-medium">
                   <span className="flex items-center gap-1">
-                    <GraduationCap size={12} className="text-charcoal/40" />
+                    <GraduationCap size={12} className="text-white/40" />
                     {item.role}
                   </span>
-                  <span className="bg-white px-2 py-0.5 rounded-md border border-gray-200">
+                  <span className="bg-white/10 text-white/80 px-2 py-0.5 rounded-md border border-white/15">
                     {item.platform}
                   </span>
                 </div>
