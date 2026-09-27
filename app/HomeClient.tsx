@@ -267,10 +267,14 @@ export default function HomeClient() {
 
           {/* ─── Why Choose Us Section ─── */}
           <WhyTMOCU />
+        </div>
 
-          {/* ─── Student Testimonials & Verified Reviews ─── */}
+        {/* ─── Student Testimonials & Verified Reviews (Full Page Width) ─── */}
+        <div className="my-10 sm:my-14 lg:my-16">
           <Testimonials />
+        </div>
 
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* ─── High-Conversion Editorial Banner CTA ─── */}
           <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
             <div className="max-w-2xl space-y-6 relative z-10">
