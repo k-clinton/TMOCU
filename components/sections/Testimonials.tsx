@@ -30,7 +30,7 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Balancing 12-hour hospital shifts while taking an accelerated BSN program was pushing me to complete burnout. TMOCU matched me with an MSN specialist who managed my weekly discussion posts, pharmacology case studies, and chapter modules flawlessly. Graduated with honors!",
+      "Balancing 12 hour hospital shifts while taking an accelerated BSN program was pushing me to complete burnout. TMOCU matched me with an MSN specialist who managed my weekly discussion posts, pharmacology case studies, and chapter modules flawlessly. Graduated with honors!",
     author: "Jessica M.",
     role: "Registered Nurse & BSN Student",
     program: "Accelerated Nursing Program",
@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The quantitative financial modeling problem sets and Harvard Business case study write-ups were completed with exceptional precision. My coordinator provided submission confirmation receipts 24 hours ahead of every Sunday midnight deadline. Zero stress.",
+      "The quantitative financial modeling problem sets and Harvard Business case study write ups were completed with exceptional precision. My coordinator provided submission confirmation receipts 24 hours ahead of every Sunday midnight deadline. Zero stress.",
     author: "Marcus T.",
     role: "Operations Manager & MBA Candidate",
     program: "Executive MBA",
@@ -66,7 +66,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "As a working parent returning to college after 8 years, the 20-page APA literature review felt completely insurmountable. The assigned specialist conducted rigorous research with peer-reviewed citations and helped me secure the top grade in my cohort.",
+      "As a working parent returning to college after 8 years, the 20 page APA literature review felt completely insurmountable. The assigned specialist conducted rigorous research with peer reviewed citations and helped me secure the top grade in my cohort.",
     author: "Elena R.",
     role: "HR Specialist & Psychology Senior",
     program: "B.A. in Psychology",
@@ -78,7 +78,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "I was falling behind on timed Calculus II problem sets on WebAssign. TMOCU stepped in mid-semester, managed every homework module with full step-by-step workings, and prepared me for proctored exams. Turned my grade around from a D to a solid B+!",
+      "I was falling behind on timed Calculus II problem sets on WebAssign. TMOCU stepped in mid-semester, managed every homework module with full step by step workings, and prepared me for proctored exams. Turned my grade around from a D to a solid B+!",
     author: "Brandon L.",
     role: "Mechanical Engineering Student",
     program: "B.S. Mechanical Engineering",
@@ -186,7 +186,7 @@ export default function Testimonials() {
             Proven Results Across 500+ Online Courses
           </h2>
           <p className="text-xs sm:text-sm text-white/80 leading-relaxed max-w-2xl mx-auto">
-            Read verified experiences from working professionals, adult learners, and full-time university students who achieved their academic goals with TMOCU.
+            Read verified experiences from working professionals, adult learners, and full time university students who achieved their academic goals with TMOCU.
           </p>
 
           {/* Social Proof Aggregate Badges */}
