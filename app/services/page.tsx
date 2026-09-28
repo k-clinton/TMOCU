@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
+import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Academic Services & Coursework Support | TMOCU",
@@ -113,55 +114,56 @@ export default function ServicesPage() {
       <div className="relative z-20 -mt-8 bg-white rounded-t-[36px] sm:rounded-t-[48px] pt-16 pb-28 shadow-xl">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* Detailed Service Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          <ScrollRevealStagger staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
             {serviceDetails.map((service, index) => (
-              <div
-                key={service.id}
-                id={service.id}
-                className="bg-[#F8F9FA] border border-[#EAECEF] rounded-[28px] p-8 sm:p-10 flex flex-col justify-between hover:border-charcoal/30 transition-all duration-300"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold text-gold uppercase tracking-widest">
-                      Service 0{index + 1}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-charcoal mb-2">
-                    {service.title}
-                  </h2>
-                  <p className="text-sm font-semibold text-charcoal/70 mb-4">
-                    {service.tagline}
-                  </p>
-                  <p className="text-sm text-text-secondary leading-relaxed mb-6">
-                    {service.description}
-                  </p>
+              <ScrollRevealItem key={service.id}>
+                <div
+                  id={service.id}
+                  className="bg-[#F8F9FA] border border-[#EAECEF] rounded-[28px] p-8 sm:p-10 flex flex-col justify-between hover:border-charcoal/30 hover:bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-bold text-gold uppercase tracking-widest">
+                        Service 0{index + 1}
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-bold text-charcoal mb-2">
+                      {service.title}
+                    </h2>
+                    <p className="text-sm font-semibold text-charcoal/70 mb-4">
+                      {service.tagline}
+                    </p>
+                    <p className="text-sm text-text-secondary leading-relaxed mb-6">
+                      {service.description}
+                    </p>
 
-                  <div className="space-y-2.5 pt-4 border-t border-border-subtle mb-8">
-                    {service.features.map((feature) => (
-                      <div key={feature} className="flex items-start gap-2.5 text-xs sm:text-sm text-charcoal">
-                        <span className="text-gold font-bold">✓</span>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
+                    <div className="space-y-2.5 pt-4 border-t border-border-subtle mb-8">
+                      {service.features.map((feature) => (
+                        <div key={feature} className="flex items-start gap-2.5 text-xs sm:text-sm text-charcoal">
+                          <span className="text-gold font-bold">✓</span>
+                          <span>{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <Link
+                      href={`/contact?service=${service.id}`}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-charcoal text-white hover:bg-gold rounded-full text-xs font-bold uppercase tracking-wider transition-colors"
+                    >
+                      <span>Request this service</span>
+                      <span>→</span>
+                    </Link>
                   </div>
                 </div>
-
-                <div>
-                  <Link
-                    href={`/contact?service=${service.id}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-charcoal text-white hover:bg-gold rounded-full text-xs font-bold uppercase tracking-wider transition-colors"
-                  >
-                    <span>Request this service</span>
-                    <span>→</span>
-                  </Link>
-                </div>
-              </div>
+              </ScrollRevealItem>
             ))}
-          </div>
+          </ScrollRevealStagger>
 
           {/* Academic Disciplines Matrix */}
           <div className="mb-24">
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <ScrollReveal animation="fade-up" className="text-center max-w-2xl mx-auto mb-14">
               <span className="overline-tag">SUBJECT COVERAGE</span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight mt-3">
                 Disciplines We Support
@@ -169,50 +171,51 @@ export default function ServicesPage() {
               <p className="text-sm text-text-secondary mt-3">
                 Our network of academic specialists holds advanced degrees across all major higher education fields.
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ScrollRevealStagger staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {subjectDisciplines.map((disc) => (
-                <div
-                  key={disc.category}
-                  className="bg-[#F8F9FA] rounded-2xl p-6 border border-[#EAECEF]"
-                >
-                  <h3 className="text-base font-bold text-charcoal mb-4 pb-2 border-b border-border-subtle">
-                    {disc.category}
-                  </h3>
-                  <ul className="space-y-2">
-                    {disc.courses.map((course) => (
-                      <li key={course} className="text-xs text-text-secondary flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-                        {course}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ScrollRevealItem key={disc.category}>
+                  <div className="bg-[#F8F9FA] rounded-2xl p-6 border border-[#EAECEF] hover:border-charcoal/30 hover:bg-white transition-all duration-300 hover:shadow-md h-full">
+                    <h3 className="text-base font-bold text-charcoal mb-4 pb-2 border-b border-border-subtle">
+                      {disc.category}
+                    </h3>
+                    <ul className="space-y-2">
+                      {disc.courses.map((course) => (
+                        <li key={course} className="text-xs text-text-secondary flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+                          {course}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </ScrollRevealItem>
               ))}
-            </div>
+            </ScrollRevealStagger>
           </div>
 
           {/* Photo & CTA Banner */}
-          <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-3 max-w-xl">
-              <span className="text-xs font-bold text-gold uppercase tracking-widest">
-                Custom Syllabi Consultation
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                Have a specialized or accelerated course?
-              </h3>
-              <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
-                Upload your syllabus or describe your class schedule for a personalized feasibility review.
-              </p>
+          <ScrollReveal animation="scale-up">
+            <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+              <div className="space-y-3 max-w-xl">
+                <span className="text-xs font-bold text-gold uppercase tracking-widest">
+                  Custom Syllabi Consultation
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  Have a specialized or accelerated course?
+                </h3>
+                <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
+                  Upload your syllabus or describe your class schedule for a personalized feasibility review.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-white text-charcoal hover:bg-gold hover:text-white rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-xl hover:scale-105 active:scale-95"
+              >
+                Get Custom Quote
+              </Link>
             </div>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white text-charcoal hover:bg-gold hover:text-white rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-xl"
-            >
-              Get Custom Quote
-            </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </div>
