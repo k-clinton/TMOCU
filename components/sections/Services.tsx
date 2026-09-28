@@ -2,7 +2,7 @@
 
 import SectionLabel from "@/components/ui/SectionLabel";
 import ServiceCard from "@/components/ui/ServiceCard";
-import { useScrollReveal } from "@/lib/useScrollReveal";
+import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
 
 const services = [
   {
@@ -134,63 +134,42 @@ const services = [
 ];
 
 export default function Services() {
-  const { ref, isVisible } = useScrollReveal(0.08);
-
   return (
     <section
       id="services"
       className="bg-cream-warm py-24 lg:py-32"
       aria-labelledby="services-heading"
     >
-      <div ref={ref} className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-[600px] mb-14">
-          <SectionLabel
-            className={
-              isVisible ? "animate-fade-in-up" : "opacity-0"
-            }
-          >
-            Our Services
-          </SectionLabel>
+        <ScrollReveal animation="fade-up" className="max-w-[600px] mb-14">
+          <SectionLabel>Our Services</SectionLabel>
           <h2
             id="services-heading"
-            className={`text-3xl md:text-4xl font-bold text-navy mt-4 tracking-tight ${
-              isVisible
-                ? "animate-fade-in-up animation-delay-100"
-                : "opacity-0"
-            }`}
+            className="text-3xl md:text-4xl font-bold text-navy mt-4 tracking-tight"
           >
             Comprehensive Academic Support, Tailored to You
           </h2>
-          <p
-            className={`text-text-secondary mt-4 leading-relaxed ${
-              isVisible
-                ? "animate-fade-in-up animation-delay-200"
-                : "opacity-0"
-            }`}
-          >
+          <p className="text-text-secondary mt-4 leading-relaxed">
             From daily coursework to high-stakes exams, we cover every aspect
             of your online academic experience so you can stay focused on
             what matters.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Cards Grid */}
-        <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ${
-            isVisible ? "" : "opacity-0"
-          }`}
-        >
+        <ScrollRevealStagger staggerDelay={0.07} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
-            <ServiceCard
-              key={service.title}
-              icon={service.icon}
-              title={service.title}
-              description={service.description}
-              index={i}
-            />
+            <ScrollRevealItem key={service.title}>
+              <ServiceCard
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                index={i}
+              />
+            </ScrollRevealItem>
           ))}
-        </div>
+        </ScrollRevealStagger>
       </div>
     </section>
   );
