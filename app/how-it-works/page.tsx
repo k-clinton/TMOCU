@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/how-it-works",
   },
+  openGraph: {
+    title: "How It Works — Step by Step Class Management Process | TMOCU",
+    description:
+      "Submit your class details, get matched with a specialist, and receive progress updates every step of the way — from syllabus to final grade.",
+    url: "/how-it-works",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How It Works — Step by Step Class Management Process | TMOCU",
+    description:
+      "Submit your class details, get matched with a specialist, and receive progress updates every step of the way — from syllabus to final grade.",
+  },
 };
 
 const steps = [
