@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
   },
+  openGraph: {
+    title: "Request Class Support — Free Confidential Quote | TMOCU",
+    description:
+      "Get a free, confidential quote for online class management in under 1 hour. Submit your syllabus or course details now.",
+    url: "/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Request Class Support — Free Confidential Quote | TMOCU",
+    description:
+      "Get a free, confidential quote for online class management in under 1 hour. Submit your syllabus or course details now.",
+  },
 };
 
 export default function ContactPage() {
