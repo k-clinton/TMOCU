@@ -290,13 +290,13 @@ export default function HomeClient() {
                 </p>
                 <div className="pt-4 flex flex-wrap items-center gap-4">
                   <Link
-                    href="/contact"
+                    href="/price-calculator"
                     className="px-8 py-4 bg-white text-charcoal hover:bg-gold hover:text-white rounded-full font-bold text-sm transition-all duration-200 shadow-xl"
                   >
                     Request Class Quote
                   </Link>
                   <Link
-                    href="/price-calculator"
+                    href="/how-it-works"
                     className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium text-sm transition-all border border-white/10"
                   >
                     How Onboarding Works
