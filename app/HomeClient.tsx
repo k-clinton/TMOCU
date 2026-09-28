@@ -94,7 +94,7 @@ export default function HomeClient() {
                 Get Free Class Quote
               </Link>
               <Link
-                href="/services"
+                href="/price-calculator"
                 className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 rounded-full font-medium text-sm transition-all duration-200"
               >
                 Explore Services
