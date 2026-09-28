@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services",
   },
+  openGraph: {
+    title: "Academic Services & Coursework Support | TMOCU",
+    description:
+      "Full online class management, assignment help, exam support, and discussion board services — handled by degree-verified academic specialists.",
+    url: "/services",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Academic Services & Coursework Support | TMOCU",
+    description:
+      "Full online class management, assignment help, exam support, and discussion board services — handled by degree-verified academic specialists.",
+  },
 };
 
 const serviceDetails = [
