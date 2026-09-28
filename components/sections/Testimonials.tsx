@@ -295,7 +295,7 @@ export default function Testimonials() {
                       fill
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       priority
-                      quality={90}
+                      quality={75}
                       sizes="(max-width: 768px) 176px, (max-width: 1024px) 224px, 240px"
                     />
                   </div>
