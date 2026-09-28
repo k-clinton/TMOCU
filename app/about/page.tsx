@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
 import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
+import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "About Us — Academic Support & Student Success | TMOCU",
@@ -60,7 +61,7 @@ export default function AboutPage() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* Mission & Narrative */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
-            <div className="lg:col-span-6 space-y-6">
+            <ScrollReveal animation="fade-left" className="lg:col-span-6 space-y-6">
               <span className="overline-tag">OUR MISSION</span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">
                 Bridging the Gap Between Career Demands and Academic Goals
@@ -71,7 +72,7 @@ export default function AboutPage() {
               <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                 We believe that life responsibilities should not derail your academic aspirations. TMOCU provides the dedicated support structure you need to maintain stellar grades while keeping your career and personal life on track.
               </p>
-            </div>
+            </ScrollReveal>
 
             <div className="lg:col-span-6">
               <AnimatedImageCard
@@ -91,68 +92,69 @@ export default function AboutPage() {
 
           {/* 4 Core Pillars Grid */}
           <div className="mb-24">
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <ScrollReveal animation="fade-up" className="text-center max-w-2xl mx-auto mb-14">
               <span className="overline-tag">OUR STANDARDS</span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight mt-3">
                 Built On Trust and Academic Rigor
               </h2>
-            </div>
+            </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ScrollRevealStagger staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {pillars.map((pillar, i) => (
-                <div
-                  key={pillar.title}
-                  className="bg-[#F8F9FA] rounded-2xl p-8 border border-[#EAECEF] hover:border-charcoal/30 transition-colors"
-                >
-                  <span className="text-2xl font-black text-charcoal/20 font-mono mb-4 block">
-                    0{i + 1}
-                  </span>
-                  <h3 className="text-base font-bold text-charcoal mb-2">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-xs text-text-secondary leading-relaxed">
-                    {pillar.desc}
-                  </p>
-                </div>
+                <ScrollRevealItem key={pillar.title}>
+                  <div className="bg-[#F8F9FA] rounded-2xl p-8 border border-[#EAECEF] hover:border-charcoal/30 hover:bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full">
+                    <span className="text-2xl font-black text-charcoal/20 font-mono mb-4 block">
+                      0{i + 1}
+                    </span>
+                    <h3 className="text-base font-bold text-charcoal mb-2">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-xs text-text-secondary leading-relaxed">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                </ScrollRevealItem>
               ))}
-            </div>
+            </ScrollRevealStagger>
           </div>
 
           {/* Academic Specialist Network */}
-          <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 mb-24 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <span className="text-xs font-bold text-gold uppercase tracking-widest">
-                Our Specialist Network
-              </span>
-              <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
-                Vetted Academic Specialists Across 50+ Disciplines
-              </h3>
-              <p className="text-sm text-white/70 leading-relaxed">
-                Our academic network is comprised of qualified graduates, educators, and subject experts holding advanced master&apos;s and doctoral credentials. Each specialist undergoes rigorous background and knowledge assessments before managing coursework.
-              </p>
-            </div>
-            <div className="lg:col-span-5 flex flex-col gap-4">
-              <div className="bg-white/10 rounded-2xl p-5 border border-white/10">
-                <span className="text-2xl font-bold text-white block">100%</span>
-                <span className="text-xs text-white/70">Degree-Verified Subject Specialists</span>
+          <ScrollReveal animation="scale-up" className="mb-24">
+            <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center shadow-2xl">
+              <div className="lg:col-span-7 space-y-4">
+                <span className="text-xs font-bold text-gold uppercase tracking-widest">
+                  Our Specialist Network
+                </span>
+                <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
+                  Vetted Academic Specialists Across 50+ Disciplines
+                </h3>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  Our academic network is comprised of qualified graduates, educators, and subject experts holding advanced master&apos;s and doctoral credentials. Each specialist undergoes rigorous background and knowledge assessments before managing coursework.
+                </p>
               </div>
-              <div className="bg-white/10 rounded-2xl p-5 border border-white/10">
-                <span className="text-2xl font-bold text-white block">&lt; 1hr</span>
-                <span className="text-xs text-white/70">Average Academic Coordinator Response Time</span>
+              <div className="lg:col-span-5 flex flex-col gap-4">
+                <div className="bg-white/10 rounded-2xl p-5 border border-white/10">
+                  <span className="text-2xl font-bold text-white block">100%</span>
+                  <span className="text-xs text-white/70">Degree-Verified Subject Specialists</span>
+                </div>
+                <div className="bg-white/10 rounded-2xl p-5 border border-white/10">
+                  <span className="text-2xl font-bold text-white block">&lt; 1hr</span>
+                  <span className="text-xs text-white/70">Average Academic Coordinator Response Time</span>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Bottom Action */}
-          <div className="text-center">
+          <ScrollReveal animation="fade-up" className="text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-charcoal text-white hover:bg-gold rounded-full font-bold text-sm transition-all shadow-xl"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-charcoal text-white hover:bg-gold rounded-full font-bold text-sm transition-all shadow-xl hover:scale-105 active:scale-95"
             >
               <span>Connect With an Academic Advisor</span>
               <span>→</span>
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </div>
