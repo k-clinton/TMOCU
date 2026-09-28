@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/price-calculator",
   },
+  openGraph: {
+    title: "Academic Price Calculator | TMOCU",
+    description:
+      "Get an instant price estimate for online class management, assignment help, or exam support. Free, confidential, and no commitment required.",
+    url: "/price-calculator",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Academic Price Calculator | TMOCU",
+    description:
+      "Get an instant price estimate for online class management, assignment help, or exam support. Free, confidential, and no commitment required.",
+  },
 };
 
 const heroTraits = [
