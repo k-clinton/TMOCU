@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollReveal } from "@/lib/useScrollReveal";
@@ -102,10 +102,14 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+const AUTOPLAY_DELAY = 4000;
+
 export default function Testimonials() {
   const { ref } = useScrollReveal(0.06);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const nextTestimonial = useCallback(() => {
     setDirection(1);
@@ -122,11 +126,23 @@ export default function Testimonials() {
     setCurrentIndex(index);
   };
 
+  // Auto-advance every AUTOPLAY_DELAY ms; resets on any manual interaction
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (isPaused) return;
+    timerRef.current = setTimeout(() => nextTestimonial(), AUTOPLAY_DELAY);
+  }, [isPaused, nextTestimonial]);
+
+  useEffect(() => {
+    resetTimer();
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, [currentIndex, isPaused, resetTimer]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") prevTestimonial();
-      if (e.key === "ArrowRight") nextTestimonial();
+      if (e.key === "ArrowLeft") { prevTestimonial(); }
+      if (e.key === "ArrowRight") { nextTestimonial(); }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -167,6 +183,10 @@ export default function Testimonials() {
       ref={ref}
       className="relative w-full bg-gradient-to-br from-[#1B2932] via-[#23333E] to-[#1E2B34] text-white py-10 sm:py-12 lg:py-14 px-6 lg:px-12 overflow-hidden border-y border-white/10"
       aria-labelledby="testimonials-heading"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={() => setIsPaused(false)}
     >
       {/* Atmospheric Ambient Glow Layers matching Hero overlay */}
       <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-gold/10 blur-3xl pointer-events-none animate-pulse-glow" />
