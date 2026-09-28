@@ -11,6 +11,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/about",
   },
+  openGraph: {
+    title: "About Us — Academic Support & Student Success | TMOCU",
+    description:
+      "Learn how TMOCU's network of 50+ degree-verified academic specialists helps busy students achieve their grade targets with total confidentiality.",
+    url: "/about",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us — Academic Support & Student Success | TMOCU",
+    description:
+      "Learn how TMOCU's network of 50+ degree-verified academic specialists helps busy students achieve their grade targets with total confidentiality.",
+  },
 };
 
 const pillars = [
