@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Academic Services & Coursework Support | TMOCU",
     description:
-      "Full online class management, assignment help, exam support, and discussion board services — handled by degree-verified academic specialists.",
+      "Full online class management, assignment help, exam support, and discussion board services handled by degree verified academic specialists.",
     url: "/services",
     type: "website",
   },
@@ -33,7 +33,7 @@ const serviceDetails = [
     description:
       "We handle every facet of your online portal: weekly modules, reading assignments, video lectures, and deadline tracking. Perfect for working professionals juggling rigorous full time careers with degree completion.",
     features: [
-      "Weekly portal check-ins and module completion",
+      "Weekly portal check ins and module completion",
       "On time submission for all syllabus milestones",
       "Proactive grade monitoring and score alerts",
       "Direct communication with your assigned specialist",
@@ -87,7 +87,7 @@ const subjectDisciplines = [
   },
   {
     category: "Healthcare & Nursing",
-    courses: ["Pharmacology", "Pathophysiology", "Nursing Informatics", "Evidence-Based Practice", "Public Health"],
+    courses: ["Pharmacology", "Pathophysiology", "Nursing Informatics", "Evidence Based Practice", "Public Health"],
   },
   {
     category: "STEM & Computer Science",
