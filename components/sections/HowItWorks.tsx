@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
-import { useScrollReveal } from "@/lib/useScrollReveal";
+import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
 
 const steps = [
   {
@@ -52,91 +53,63 @@ const steps = [
 ];
 
 export default function HowItWorks() {
-  const { ref, isVisible } = useScrollReveal(0.08);
-
   return (
     <section
       id="how-it-works"
       className="bg-cream-warm py-24 lg:py-32 border-y border-border"
       aria-labelledby="how-it-works-heading"
     >
-      <div ref={ref} className="max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-24">
-          <SectionLabel
-            className={
-              isVisible ? "animate-fade-in-up inline-block" : "opacity-0"
-            }
-          >
-            How It Works
-          </SectionLabel>
+        <ScrollReveal animation="fade-up" className="text-center max-w-2xl mx-auto mb-16 lg:mb-24">
+          <SectionLabel>How It Works</SectionLabel>
           <h2
             id="how-it-works-heading"
-            className={`text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-navy mt-4 mb-6 tracking-tight ${
-              isVisible
-                ? "animate-fade-in-up animation-delay-100"
-                : "opacity-0"
-            }`}
+            className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-navy mt-4 mb-6 tracking-tight"
           >
             Simple, Transparent, and Stress-Free
           </h2>
-          <p
-            className={`text-base md:text-lg text-text-secondary leading-relaxed ${
-              isVisible
-                ? "animate-fade-in-up animation-delay-200"
-                : "opacity-0"
-            }`}
-          >
+          <p className="text-base md:text-lg text-text-secondary leading-relaxed">
             Getting academic assistance shouldn&apos;t be complicated. Here is how we make managing your courses seamless from day one.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Steps Grid with Connectors */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        <ScrollRevealStagger staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {steps.map((item, index) => (
-            <div
-              key={item.step}
-              className={`relative bg-white rounded-2xl p-8 border border-border/80 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:-translate-y-1 ${
-                isVisible ? "animate-fade-in-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${0.1 + index * 0.12}s` }}
-            >
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-2xl font-black tracking-tight text-navy/20 font-mono">
-                    {item.step}
-                  </span>
-                  <div className="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center">
-                    {item.icon}
+            <ScrollRevealItem key={item.step}>
+              <div className="relative bg-white rounded-2xl p-8 border border-border/80 shadow-sm flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-2xl font-black tracking-tight text-navy/20 font-mono">
+                      {item.step}
+                    </span>
+                    <div className="w-12 h-12 rounded-xl bg-navy/5 flex items-center justify-center">
+                      {item.icon}
+                    </div>
                   </div>
+                  <h3 className="text-lg font-bold text-navy mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-navy mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-text-secondary leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
 
-              <div className="mt-6 pt-4 border-t border-border-light flex items-center gap-2 text-xs font-semibold text-gold">
-                <span>Step {index + 1} of 4</span>
+                <div className="mt-6 pt-4 border-t border-border-light flex items-center gap-2 text-xs font-semibold text-gold">
+                  <span>Step {index + 1} of 4</span>
+                </div>
               </div>
-            </div>
+            </ScrollRevealItem>
           ))}
-        </div>
+        </ScrollRevealStagger>
 
         {/* Bottom Action */}
-        <div
-          className={`mt-16 text-center ${
-            isVisible
-              ? "animate-fade-in-up animation-delay-500"
-              : "opacity-0"
-          }`}
-        >
+        <ScrollReveal animation="fade-up" delay={0.2} className="mt-16 text-center">
           <Button href="#contact" size="lg">
             Start With Your Class
           </Button>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
