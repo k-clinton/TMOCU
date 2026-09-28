@@ -296,7 +296,7 @@ export default function HomeClient() {
                     Request Class Quote
                   </Link>
                   <Link
-                    href="/how-it-works"
+                    href="/price-calculator"
                     className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium text-sm transition-all border border-white/10"
                   >
                     How Onboarding Works
