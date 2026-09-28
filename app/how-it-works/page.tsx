@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
 import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
+import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "How It Works — Step by Step Class Management Process | TMOCU",
@@ -109,12 +110,13 @@ export default function HowItWorksPage() {
       {/* ─── Main Content Surface ─── */}
       <div className="relative z-20 -mt-8 bg-white rounded-t-[36px] sm:rounded-t-[48px] pt-16 pb-28 shadow-xl">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          {/* 4 Steps Vertical Grid */}
+          {/* 4 Steps Vertical List with Scroll Animations */}
           <div className="space-y-12 mb-24">
-            {steps.map((step) => (
-              <div
+            {steps.map((step, idx) => (
+              <ScrollReveal
                 key={step.number}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-8 sm:p-12 rounded-[28px] bg-[#F8F9FA] border border-[#EAECEF] items-center"
+                animation={idx % 2 === 0 ? "fade-left" : "fade-right"}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-8 sm:p-12 rounded-[28px] bg-[#F8F9FA] border border-[#EAECEF] items-center hover:border-charcoal/30 hover:bg-white transition-all duration-300 hover:shadow-lg"
               >
                 <div className="lg:col-span-2 flex items-center justify-between lg:flex-col lg:items-start">
                   <span className="text-5xl sm:text-6xl font-black text-charcoal/20 font-mono">
@@ -145,75 +147,76 @@ export default function HowItWorksPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
           {/* Security & Confidentiality Highlight */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 p-8 sm:p-12 bg-charcoal text-white rounded-[32px]">
-            <div className="lg:col-span-7 space-y-4">
-              <span className="text-xs font-bold text-gold uppercase tracking-widest">
-                Student Safety Guarantee
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Discretion, Privacy, and Regional IP Matching
-              </h2>
-              <p className="text-sm text-white/70 leading-relaxed">
-                We understand that privacy is paramount. Our specialists use secure, dedicated connections matching your school&apos;s geographic location, preventing unexpected location flags on university LMS portals. Your personal data is never shared with third parties.
-              </p>
+          <ScrollReveal animation="scale-up" className="mb-24">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center p-8 sm:p-12 bg-charcoal text-white rounded-[32px] shadow-2xl">
+              <div className="lg:col-span-7 space-y-4">
+                <span className="text-xs font-bold text-gold uppercase tracking-widest">
+                  Student Safety Guarantee
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                  Discretion, Privacy, and Regional IP Matching
+                </h2>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  We understand that privacy is paramount. Our specialists use secure, dedicated connections matching your school&apos;s geographic location, preventing unexpected location flags on university LMS portals. Your personal data is never shared with third parties.
+                </p>
+              </div>
+              <div className="lg:col-span-5">
+                <AnimatedImageCard
+                  src="/images/student-study-2.jpg"
+                  alt="Student studying with privacy and ease"
+                  aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
+                  badge={{
+                    text: "Encrypted Regional Login Active",
+                    dotColor: "bg-emerald-400",
+                    pulse: true,
+                    position: "bottom-left",
+                  }}
+                  secondaryBadge="Privacy Shield"
+                />
+              </div>
             </div>
-            <div className="lg:col-span-5">
-              <AnimatedImageCard
-                src="/images/student-study-2.jpg"
-                alt="Student studying with privacy and ease"
-                aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
-                badge={{
-                  text: "Encrypted Regional Login Active",
-                  dotColor: "bg-emerald-400",
-                  pulse: true,
-                  position: "bottom-left",
-                }}
-                secondaryBadge="Privacy Shield"
-              />
-            </div>
-          </div>
+          </ScrollReveal>
 
           {/* Frequently Asked Questions */}
           <div className="mb-24">
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <ScrollReveal animation="fade-up" className="text-center max-w-2xl mx-auto mb-14">
               <span className="overline-tag">COMMON QUESTIONS</span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight mt-3">
                 Frequently Asked Questions
               </h2>
-            </div>
+            </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ScrollRevealStagger staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {faqs.map((faq) => (
-                <div
-                  key={faq.q}
-                  className="bg-[#F8F9FA] rounded-2xl p-6 sm:p-8 border border-[#EAECEF]"
-                >
-                  <h3 className="text-base sm:text-lg font-bold text-charcoal mb-3">
-                    {faq.q}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-                    {faq.a}
-                  </p>
-                </div>
+                <ScrollRevealItem key={faq.q}>
+                  <div className="bg-[#F8F9FA] rounded-2xl p-6 sm:p-8 border border-[#EAECEF] hover:border-charcoal/30 hover:bg-white transition-all duration-300 hover:shadow-md h-full">
+                    <h3 className="text-base sm:text-lg font-bold text-charcoal mb-3">
+                      {faq.q}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
+                      {faq.a}
+                    </p>
+                  </div>
+                </ScrollRevealItem>
               ))}
-            </div>
+            </ScrollRevealStagger>
           </div>
 
           {/* Bottom Action */}
-          <div className="text-center">
+          <ScrollReveal animation="fade-up" className="text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-charcoal text-white hover:bg-gold rounded-full font-bold text-sm transition-all shadow-xl"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-charcoal text-white hover:bg-gold rounded-full font-bold text-sm transition-all shadow-xl hover:scale-105 active:scale-95"
             >
               <span>Get Started With Your Syllabus</span>
               <span>→</span>
             </Link>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </div>
