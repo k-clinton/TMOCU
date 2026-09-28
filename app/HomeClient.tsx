@@ -8,6 +8,7 @@ import WhyTMOCU from "@/components/sections/WhyTMOCU";
 import Testimonials from "@/components/sections/Testimonials";
 import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
 import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
+import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
 
 const metricCards = [
   {
@@ -110,42 +111,41 @@ export default function HomeClient() {
       >
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* ─── LMS / Platform Monochrome Logo Strip ─── */}
-          <div className="border-b border-border-subtle pb-12 mb-16">
+          <ScrollReveal animation="fade-up" className="border-b border-border-subtle pb-12 mb-16">
             <div className="text-center mb-6">
               <span className="overline-tag">SUPPORTED PORTALS & PLATFORMS</span>
             </div>
             <PlatformMarquee />
-          </div>
+          </ScrollReveal>
 
-          {/* ─── 3 Metric Feature Cards (Arkitect Grid) ─── */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24 lg:mb-32">
+          {/* ─── 3 Metric Feature Cards (Arkitect Grid with Staggered Scroll Animation) ─── */}
+          <ScrollRevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24 lg:mb-32">
             {metricCards.map((card) => (
-              <div
-                key={card.label}
-                className="bg-[#F8F9FA] rounded-[24px] p-8 md:p-10 border border-[#EAECEF] hover:border-charcoal/20 transition-all duration-300 hover:shadow-md"
-              >
-                <div className="text-4xl sm:text-5xl font-extrabold text-charcoal tracking-tight mb-2">
-                  {card.number}
+              <ScrollRevealItem key={card.label}>
+                <div className="bg-[#F8F9FA] rounded-[24px] p-8 md:p-10 border border-[#EAECEF] hover:border-charcoal/20 transition-all duration-300 hover:shadow-md h-full">
+                  <div className="text-4xl sm:text-5xl font-extrabold text-charcoal tracking-tight mb-2">
+                    {card.number}
+                  </div>
+                  <div className="text-[11px] font-bold tracking-widest text-charcoal/60 uppercase mb-4">
+                    {card.label}
+                  </div>
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    {card.description}
+                  </p>
                 </div>
-                <div className="text-[11px] font-bold tracking-widest text-charcoal/60 uppercase mb-4">
-                  {card.label}
-                </div>
-                <p className="text-sm text-text-secondary leading-relaxed">
-                  {card.description}
-                </p>
-              </div>
+              </ScrollRevealItem>
             ))}
-          </div>
+          </ScrollRevealStagger>
 
           {/* ─── Section Micro Label ─── */}
-          <div className="text-center mb-16">
+          <ScrollReveal animation="fade" className="text-center mb-16">
             <span className="overline-tag">OUR SERVICES</span>
-          </div>
+          </ScrollReveal>
 
           {/* ─── Staggered Editorial Section 1: PLAN ─── */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28 lg:mb-36">
             {/* Left: Text Narrative */}
-            <div className="lg:col-span-6 space-y-6 lg:pr-6">
+            <ScrollReveal animation="fade-left" className="lg:col-span-6 space-y-6 lg:pr-6">
               <h2 className="text-4xl sm:text-5xl font-extrabold text-charcoal tracking-tight">
                 Plan
               </h2>
@@ -164,7 +164,7 @@ export default function HomeClient() {
                   <span>→</span>
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right: Vertical Realistic Photo Card */}
             <div className="lg:col-span-6">
@@ -202,7 +202,7 @@ export default function HomeClient() {
             </div>
 
             {/* Right: Text Narrative */}
-            <div className="lg:col-span-6 space-y-6 lg:pl-6 order-1 lg:order-2">
+            <ScrollReveal animation="fade-right" className="lg:col-span-6 space-y-6 lg:pl-6 order-1 lg:order-2">
               <h2 className="text-4xl sm:text-5xl font-extrabold text-charcoal tracking-tight">
                 Execute
               </h2>
@@ -221,13 +221,13 @@ export default function HomeClient() {
                   <span>→</span>
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* ─── Staggered Editorial Section 3: SUCCEED ─── */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28 lg:mb-36">
             {/* Left: Text Narrative */}
-            <div className="lg:col-span-6 space-y-6 lg:pr-6">
+            <ScrollReveal animation="fade-left" className="lg:col-span-6 space-y-6 lg:pr-6">
               <h2 className="text-4xl sm:text-5xl font-extrabold text-charcoal tracking-tight">
                 Succeed
               </h2>
@@ -246,7 +246,7 @@ export default function HomeClient() {
                   <span>→</span>
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right: Realistic Photo Card */}
             <div className="lg:col-span-6">
@@ -276,33 +276,35 @@ export default function HomeClient() {
 
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* ─── High-Conversion Editorial Banner CTA ─── */}
-          <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
-            <div className="max-w-2xl space-y-6 relative z-10">
-              <span className="text-xs font-bold uppercase tracking-widest text-gold">
-                Start Today
-              </span>
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-                Let us take the stress out of your online semester.
-              </h3>
-              <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-xl">
-                Share your syllabus or course link for a confidential review and guaranteed quote within 1 hour.
-              </p>
-              <div className="pt-4 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="px-8 py-4 bg-white text-charcoal hover:bg-gold hover:text-white rounded-full font-bold text-sm transition-all duration-200 shadow-xl"
-                >
-                  Request Class Quote
-                </Link>
-                <Link
-                  href="/how-it-works"
-                  className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium text-sm transition-all border border-white/10"
-                >
-                  How Onboarding Works
-                </Link>
+          <ScrollReveal animation="scale-up">
+            <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
+              <div className="max-w-2xl space-y-6 relative z-10">
+                <span className="text-xs font-bold uppercase tracking-widest text-gold">
+                  Start Today
+                </span>
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
+                  Let us take the stress out of your online semester.
+                </h3>
+                <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-xl">
+                  Share your syllabus or course link for a confidential review and guaranteed quote within 1 hour.
+                </p>
+                <div className="pt-4 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/contact"
+                    className="px-8 py-4 bg-white text-charcoal hover:bg-gold hover:text-white rounded-full font-bold text-sm transition-all duration-200 shadow-xl"
+                  >
+                    Request Class Quote
+                  </Link>
+                  <Link
+                    href="/how-it-works"
+                    className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium text-sm transition-all border border-white/10"
+                  >
+                    How Onboarding Works
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </div>
