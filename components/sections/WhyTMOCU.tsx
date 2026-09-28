@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useScrollReveal } from "@/lib/useScrollReveal";
 import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
+import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
 
 const reasons = [
   {
@@ -36,18 +36,15 @@ const reasons = [
 ];
 
 export default function WhyTMOCU() {
-  const { ref, isVisible } = useScrollReveal(0.06);
-
   return (
     <section
       id="why-us"
-      ref={ref}
       className="py-24 lg:py-32 border-t border-border-subtle"
       aria-labelledby="why-us-heading"
     >
       <div className="max-w-[1280px] mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+        <ScrollReveal animation="fade-up" className="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
           <span className="overline-tag">WHY CHOOSE US</span>
           <h2
             id="why-us-heading"
@@ -58,84 +55,82 @@ export default function WhyTMOCU() {
           <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
             Discover why working professionals and busy college students trust TMOCU to manage their online coursework and degree requirements.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* 2x2 Grid of Benefit Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {reasons.map((item, index) => (
-            <div
-              key={item.number}
-              className={`bg-[#F8F9FA] rounded-[28px] p-8 sm:p-10 border border-[#EAECEF] hover:border-charcoal/30 transition-all duration-300 flex flex-col justify-between ${
-                isVisible ? "animate-fade-in-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${0.1 + index * 0.1}s` }}
-            >
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-4xl font-black text-charcoal/20 font-mono">
-                    {item.number}
-                  </span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-gold" />
+        <ScrollRevealStagger staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {reasons.map((item) => (
+            <ScrollRevealItem key={item.number}>
+              <div className="bg-[#F8F9FA] rounded-[28px] p-8 sm:p-10 border border-[#EAECEF] hover:border-charcoal/30 hover:bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-4xl font-black text-charcoal/20 font-mono">
+                      {item.number}
+                    </span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-gold" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-charcoal mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-semibold text-charcoal/70 mb-4">
+                    {item.subtitle}
+                  </p>
+                  <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-charcoal mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm font-semibold text-charcoal/70 mb-4">
-                  {item.subtitle}
-                </p>
-                <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
 
-              <div className="mt-8 pt-4 border-t border-border-subtle flex items-center justify-between">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-charcoal/50">
-                  TMOCU Standard
-                </span>
-                <span className="text-gold font-bold text-xs">Verified ✓</span>
+                <div className="mt-8 pt-4 border-t border-border-subtle flex items-center justify-between">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-charcoal/50">
+                    TMOCU Standard
+                  </span>
+                  <span className="text-gold font-bold text-xs">Verified ✓</span>
+                </div>
               </div>
-            </div>
+            </ScrollRevealItem>
           ))}
-        </div>
+        </ScrollRevealStagger>
 
         {/* Photo Card with Quote / Trust Strip */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#121417] text-white rounded-[32px] p-8 sm:p-12 overflow-hidden relative">
-          <div className="lg:col-span-7 space-y-4 relative z-10">
-            <span className="text-xs font-bold text-gold uppercase tracking-widest">
-              Dedicated Coordinator Support
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
-              &ldquo;We treat your coursework with the same rigor and dedication as you would.&rdquo;
-            </h3>
-            <p className="text-xs sm:text-sm text-white/70 leading-relaxed max-w-lg">
-              From our 1-hour response SLA to our verified rubric compliance check, we ensure your online academic journey is seamless and stress-free.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:text-gold transition-colors"
-              >
-                <span>Read more about our standards</span>
-                <span>→</span>
-              </Link>
+        <ScrollReveal animation="scale-up">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#121417] text-white rounded-[32px] p-8 sm:p-12 overflow-hidden relative shadow-2xl">
+            <div className="lg:col-span-7 space-y-4 relative z-10">
+              <span className="text-xs font-bold text-gold uppercase tracking-widest">
+                Dedicated Coordinator Support
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
+                &ldquo;We treat your coursework with the same rigor and dedication as you would.&rdquo;
+              </h3>
+              <p className="text-xs sm:text-sm text-white/70 leading-relaxed max-w-lg">
+                From our 1-hour response SLA to our verified rubric compliance check, we ensure your online academic journey is seamless and stress-free.
+              </p>
+              <div className="pt-2">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:text-gold transition-colors"
+                >
+                  <span>Read more about our standards</span>
+                  <span>→</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <AnimatedImageCard
+                src="/images/student-study-1.jpg"
+                alt="Student focused on coursework"
+                aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
+                badge={{
+                  text: "24/7 Coordinator Support Active",
+                  dotColor: "bg-gold",
+                  pulse: true,
+                  position: "bottom-left",
+                }}
+                secondaryBadge="Verified SLA"
+              />
             </div>
           </div>
-
-          <div className="lg:col-span-5">
-            <AnimatedImageCard
-              src="/images/student-study-1.jpg"
-              alt="Student focused on coursework"
-              aspectRatio="aspect-[4/3] sm:aspect-[16/11]"
-              badge={{
-                text: "24/7 Coordinator Support Active",
-                dotColor: "bg-gold",
-                pulse: true,
-                position: "bottom-left",
-              }}
-              secondaryBadge="Verified SLA"
-            />
-          </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
