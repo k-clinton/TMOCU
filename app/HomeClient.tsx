@@ -268,14 +268,16 @@ export default function HomeClient() {
 
           {/* ─── Why Choose Us Section ─── */}
           <WhyTMOCU />
-
-          {/* ─── Frequently Asked Questions Section ─── */}
-          <FAQ />
         </div>
 
-        {/* ─── Student Testimonials & Verified Reviews (Full Page Width - Final Section) ─── */}
-        <div className="mt-10 sm:mt-14 lg:mt-16">
+        {/* ─── Student Testimonials & Verified Reviews (Full Page Width) ─── */}
+        <div className="my-10 sm:my-14 lg:my-16">
           <Testimonials />
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+          {/* ─── Frequently Asked Questions Section (Final Section) ─── */}
+          <FAQ />
         </div>
       </div>
     </div>
