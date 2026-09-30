@@ -11,7 +11,7 @@ const universities: University[] = [
   {
     name: "Southern New Hampshire University (SNHU)",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 160 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 160 44" fill="none">
         {/* SNHU blue wordmark */}
         <text
           x="10"
@@ -40,7 +40,7 @@ const universities: University[] = [
   {
     name: "National University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 170 44" fill="none">
         {/* National University column/torch mark */}
         <g transform="translate(6, 6)">
           <rect x="2" y="2" width="22" height="28" rx="2" fill="#002855" />
@@ -74,7 +74,7 @@ const universities: University[] = [
   {
     name: "Capella University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 170 44" fill="none">
         {/* Capella Red Crest Shield with C & star */}
         <g transform="translate(6, 6)">
           <path
@@ -123,7 +123,7 @@ const universities: University[] = [
   {
     name: "The University of Arizona Global Campus",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 190 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 190 44" fill="none">
         {/* Arizona Block 'A' */}
         <g transform="translate(6, 7)">
           <path
@@ -164,7 +164,7 @@ const universities: University[] = [
   {
     name: "Liberty University Online",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 170 44" fill="none">
         {/* LU ONLINE Monogram */}
         <text
           x="6"
@@ -206,7 +206,7 @@ const universities: University[] = [
   {
     name: "Grand Canyon University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 180 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 180 44" fill="none">
         <text
           x="10"
           y="22"
@@ -236,7 +236,7 @@ const universities: University[] = [
   {
     name: "UMGC (University of Maryland Global Campus)",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 160 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 160 44" fill="none">
         {/* Dynamic swirling arcs */}
         <g transform="translate(6, 6)">
           <path d="M6 8C14 4 22 8 24 12C20 14 12 12 6 8Z" fill="#E03A3E" />
@@ -261,7 +261,7 @@ const universities: University[] = [
   {
     name: "Purdue University Global",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 160 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 160 44" fill="none">
         <text
           x="10"
           y="22"
@@ -301,7 +301,7 @@ const universities: University[] = [
   {
     name: "Strayer University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 170 44" fill="none">
         {/* Strayer Shield */}
         <g transform="translate(6, 7)">
           <path
@@ -338,7 +338,7 @@ const universities: University[] = [
   {
     name: "Chamberlain University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 180 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 180 44" fill="none">
         {/* Chamberlain Seal */}
         <g transform="translate(6, 6)">
           <circle cx="16" cy="16" r="15" fill="#002F6C" />
@@ -373,7 +373,7 @@ const universities: University[] = [
   {
     name: "NCU (Northcentral University)",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 170 44" fill="none">
         {/* NCU Circular Crest */}
         <g transform="translate(6, 6)">
           <circle cx="16" cy="16" r="14" fill="none" stroke="#861F41" strokeWidth="2.5" />
@@ -407,7 +407,7 @@ const universities: University[] = [
   {
     name: "Arizona State University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 175 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 175 44" fill="none">
         {/* ASU Sunburst mark */}
         <g transform="translate(4, 8)">
           <path
@@ -445,7 +445,7 @@ const universities: University[] = [
   {
     name: "Embry-Riddle Aeronautical University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 190 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 190 44" fill="none">
         {/* Eagle winged compass */}
         <g transform="translate(4, 7)">
           <path d="M2 14C8 8 18 6 26 14C18 16 10 18 2 14Z" fill="#002663" />
@@ -478,7 +478,7 @@ const universities: University[] = [
   {
     name: "Keiser University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 170 44" fill="none">
         {/* Keiser Academic Seal */}
         <g transform="translate(6, 6)">
           <circle cx="16" cy="16" r="15" fill="#002B49" />
@@ -513,7 +513,7 @@ const universities: University[] = [
   {
     name: "BYU (Brigham Young University)",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 170 44" fill="none">
         <text
           x="6"
           y="25"
@@ -542,7 +542,7 @@ const universities: University[] = [
   {
     name: "University of Cincinnati Online",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 185 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 185 44" fill="none">
         {/* UC Monogram */}
         <g transform="translate(6, 8)">
           <text
@@ -584,7 +584,7 @@ const universities: University[] = [
   {
     name: "Rider University",
     logo: (
-      <svg className="h-9 sm:h-10 w-auto" viewBox="0 0 170 44" fill="none">
+      <svg className="h-11 sm:h-12 w-auto" viewBox="0 0 170 44" fill="none">
         {/* Rider Oak Shield */}
         <g transform="translate(6, 7)">
           <rect x="0" y="0" width="28" height="28" rx="4" fill="#981E32" />
