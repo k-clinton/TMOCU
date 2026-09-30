@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 import PlatformMarquee from "@/components/ui/PlatformMarquee";
 import WhyTMOCU from "@/components/sections/WhyTMOCU";
+import FAQ from "@/components/sections/FAQ";
 import Testimonials from "@/components/sections/Testimonials";
 import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
 import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
@@ -267,44 +268,14 @@ export default function HomeClient() {
 
           {/* ─── Why Choose Us Section ─── */}
           <WhyTMOCU />
+
+          {/* ─── Frequently Asked Questions Section ─── */}
+          <FAQ />
         </div>
 
-        {/* ─── Student Testimonials & Verified Reviews (Full Page Width) ─── */}
-        <div className="my-10 sm:my-14 lg:my-16">
+        {/* ─── Student Testimonials & Verified Reviews (Full Page Width - Final Section) ─── */}
+        <div className="mt-10 sm:mt-14 lg:mt-16">
           <Testimonials />
-        </div>
-
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          {/* ─── High-Conversion Editorial Banner CTA ─── */}
-          <ScrollReveal animation="scale-up">
-            <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 lg:p-16 relative overflow-hidden shadow-2xl">
-              <div className="max-w-2xl space-y-6 relative z-10">
-                <span className="text-xs font-bold uppercase tracking-widest text-gold">
-                  Start Today
-                </span>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-                  Let us take the stress out of your online semester.
-                </h3>
-                <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-xl">
-                  Share your syllabus or course link for a confidential review and guaranteed quote within 1 hour.
-                </p>
-                <div className="pt-4 flex flex-wrap items-center gap-4">
-                  <Link
-                    href="/price-calculator"
-                    className="px-8 py-4 bg-white text-charcoal hover:bg-gold hover:text-white rounded-full font-bold text-sm transition-all duration-200 shadow-xl"
-                  >
-                    Request Class Quote
-                  </Link>
-                  <Link
-                    href="/how-it-works"
-                    className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium text-sm transition-all border border-white/10"
-                  >
-                    How Onboarding Works
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </div>
     </div>
