@@ -102,13 +102,12 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const AUTOPLAY_DELAY = 4000;
+const AUTOPLAY_DELAY = 6000;
 
 export default function Testimonials() {
   const { ref } = useScrollReveal(0.06);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const nextTestimonial = useCallback(() => {
@@ -129,14 +128,13 @@ export default function Testimonials() {
   // Auto-advance every AUTOPLAY_DELAY ms; resets on any manual interaction
   const resetTimer = useCallback(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
-    if (isPaused) return;
     timerRef.current = setTimeout(() => nextTestimonial(), AUTOPLAY_DELAY);
-  }, [isPaused, nextTestimonial]);
+  }, [nextTestimonial]);
 
   useEffect(() => {
     resetTimer();
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
-  }, [currentIndex, isPaused, resetTimer]);
+  }, [currentIndex, resetTimer]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -183,10 +181,6 @@ export default function Testimonials() {
       ref={ref}
       className="relative w-full bg-gradient-to-br from-[#1B2932] via-[#23333E] to-[#1E2B34] text-white py-10 sm:py-12 lg:py-14 px-6 lg:px-12 overflow-hidden border-y border-white/10"
       aria-labelledby="testimonials-heading"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocusCapture={() => setIsPaused(true)}
-      onBlurCapture={() => setIsPaused(false)}
     >
       {/* Atmospheric Ambient Glow Layers matching Hero overlay */}
       <div className="absolute -top-32 -right-32 w-80 h-80 rounded-full bg-gold/10 blur-3xl pointer-events-none animate-pulse-glow" />
