@@ -94,7 +94,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24" aria-labelledby="faq-heading">
+    <section className="pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 border-t border-border-subtle" aria-labelledby="faq-heading">
       <ScrollReveal animation="fade-up" className="text-center mb-12 sm:mb-16">
         <span className="overline-tag mb-4">FAQ</span>
         <h2
