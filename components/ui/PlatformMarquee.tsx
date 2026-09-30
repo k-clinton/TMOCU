@@ -243,31 +243,17 @@ const portals = [
 
 export default function PlatformMarquee() {
   return (
-    <div className="w-full overflow-hidden py-6 sm:py-8">
-      <div className="mask-gradient-x relative w-full overflow-hidden">
-        <div className="animate-marquee flex items-center gap-16 sm:gap-24">
-          {/* First track */}
-          {portals.map((portal, index) => (
-            <div
-              key={`track1-${index}`}
-              className="flex items-center justify-center shrink-0 text-charcoal/85 hover:text-charcoal transition-all duration-200 transform hover:scale-105"
-              title={portal.name}
-            >
-              {portal.logo}
-            </div>
-          ))}
-
-          {/* Duplicated track for seamless infinite marquee loop */}
-          {portals.map((portal, index) => (
-            <div
-              key={`track2-${index}`}
-              className="flex items-center justify-center shrink-0 text-charcoal/85 hover:text-charcoal transition-all duration-200 transform hover:scale-105"
-              title={portal.name}
-            >
-              {portal.logo}
-            </div>
-          ))}
-        </div>
+    <div className="w-full py-4 sm:py-6">
+      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14 sm:gap-y-8">
+        {portals.map((portal, index) => (
+          <div
+            key={index}
+            className="flex items-center justify-center text-charcoal/70 hover:text-charcoal transition-colors duration-200"
+            title={portal.name}
+          >
+            {portal.logo}
+          </div>
+        ))}
       </div>
     </div>
   );
