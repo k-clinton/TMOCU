@@ -70,7 +70,7 @@ const steps = [
     description:
       "Receive continuous progress reports, confirmation screenshots, and grade updates so you are always aware of your class status without the stress.",
     details: [
-      "Real-time confirmation of all submitted items",
+      "Real time confirmation of all submitted items",
       "Proactive feedback review and free instructor revisions",
       "Direct coordinator support available 24/7",
     ],
