@@ -7,12 +7,12 @@ const faqs = [
   {
     question: "Is this safe and can my school detect cheating?",
     answer:
-      "Our services are 100% safe. We use secure RDPs, proxies and dedicated IP addresses based on your current geolocation to access your classes.",
+      "Our services are 100% safe. We use secure RDPs, proxies and dedicated IP addresses based on your current geolocation to access you classes.",
   },
   {
     question: "Is takemyonlineclassusa legit?",
     answer:
-      "Yes, we're a legit USA business. Our clients pay only when grades are posted. We've been doing this for years with success and promise to keep you coming back!",
+      "Yes, we're legit USA business. Our clients pay only when grades are posted. We've been doing this for years with success and promise to keep you coming back!",
   },
   {
     question: "How does this work?",
@@ -32,32 +32,32 @@ const faqs = [
 function FAQItem({
   question,
   answer,
-  index,
+  isOpen,
+  onToggle,
 }: {
   question: string;
   answer: string;
-  index: number;
+  isOpen: boolean;
+  onToggle: () => void;
 }) {
-  const [open, setOpen] = useState(index === 0);
-
   return (
     <div className="border-b border-[#EAECEF] last:border-b-0">
       <button
-        onClick={() => setOpen((o) => !o)}
+        onClick={onToggle}
         className="w-full flex items-center justify-between gap-6 py-5 sm:py-6 text-left group"
-        aria-expanded={open}
+        aria-expanded={isOpen}
       >
         <span className="text-base sm:text-lg font-semibold text-charcoal group-hover:text-gold transition-colors duration-200 leading-snug">
           {question}
         </span>
         <span
           className={`shrink-0 w-7 h-7 rounded-full border border-charcoal/25 group-hover:border-gold flex items-center justify-center transition-all duration-300 ${
-            open ? "bg-charcoal text-white border-charcoal" : "text-charcoal/60"
+            isOpen ? "bg-charcoal text-white border-charcoal" : "text-charcoal/60"
           }`}
         >
           <svg
             className={`w-3.5 h-3.5 transition-transform duration-200 ${
-              open ? "rotate-45" : ""
+              isOpen ? "rotate-45" : ""
             }`}
             viewBox="0 0 12 12"
             fill="none"
@@ -73,7 +73,7 @@ function FAQItem({
 
       <div
         className={`grid transition-all duration-300 ease-in-out ${
-          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
       >
         <div className="overflow-hidden">
@@ -87,6 +87,12 @@ function FAQItem({
 }
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
+
   return (
     <section className="py-16 sm:py-20 lg:py-24" aria-labelledby="faq-heading">
       <ScrollReveal animation="fade-up" className="text-center mb-12 sm:mb-16">
@@ -104,7 +110,13 @@ export default function FAQ() {
 
       <div className="max-w-3xl mx-auto bg-white rounded-[28px] border border-[#EAECEF] shadow-sm px-6 sm:px-10 py-2">
         {faqs.map((faq, i) => (
-          <FAQItem key={i} index={i} {...faq} />
+          <FAQItem
+            key={i}
+            question={faq.question}
+            answer={faq.answer}
+            isOpen={openIndex === i}
+            onToggle={() => handleToggle(i)}
+          />
         ))}
       </div>
     </section>
