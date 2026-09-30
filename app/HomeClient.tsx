@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 import PlatformMarquee from "@/components/ui/PlatformMarquee";
+import UniversityLogos from "@/components/ui/UniversityLogos";
 import WhyTMOCU from "@/components/sections/WhyTMOCU";
 import FAQ from "@/components/sections/FAQ";
 import Testimonials from "@/components/sections/Testimonials";
@@ -107,12 +108,18 @@ export default function HomeClient() {
         className="relative z-20 -mt-10 sm:-mt-14 bg-white rounded-t-[36px] sm:rounded-t-[48px] shadow-2xl pt-14 pb-28 border-t border-black/[0.04]"
       >
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          {/* ─── LMS / Platform Monochrome Logo Strip ─── */}
-          <ScrollReveal animation="fade-up" className="border-b border-border-subtle pb-12 mb-16">
-            <div className="text-center mb-6">
-              <span className="overline-tag">SUPPORTED PORTALS & PLATFORMS</span>
+          {/* ─── LMS / Platform & University Trust Logo Strip ─── */}
+          <ScrollReveal animation="fade-up" className="border-b border-border-subtle pb-16 mb-16 space-y-10">
+            <div>
+              <div className="text-center mb-6">
+                <span className="overline-tag">SUPPORTED PORTALS & PLATFORMS</span>
+              </div>
+              <PlatformMarquee />
             </div>
-            <PlatformMarquee />
+
+            <div className="pt-6 border-t border-border-subtle/60">
+              <UniversityLogos />
+            </div>
           </ScrollReveal>
 
           {/* ─── 3 Metric Feature Cards (Arkitect Grid with Staggered Scroll Animation) ─── */}
