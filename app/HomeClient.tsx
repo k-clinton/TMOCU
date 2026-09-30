@@ -47,7 +47,7 @@ export default function HomeClient() {
         {/* Animated Architectural Photo Backdrop */}
         <HeroImageBackdrop
           src="/images/hero-architecture.jpg"
-          alt="Modern university campus architecture"
+          alt="YTMOCU Specialist working on an online class"
           priority
         />
 
@@ -55,18 +55,16 @@ export default function HomeClient() {
           {/* Headline & Mission */}
           <div className="lg:col-span-8 space-y-6">
             <span
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-medium tracking-wide text-white/90 ${
-                heroVisible ? "animate-fade-in-up" : "opacity-0"
-              }`}
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-medium tracking-wide text-white/90 ${heroVisible ? "animate-fade-in-up" : "opacity-0"
+                }`}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-              Higher Education Support Redefined
+              Ace Your Online Coursework With Us
             </span>
 
             <h1
-              className={`text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-white leading-[1.08] tracking-tight ${
-                heroVisible ? "animate-fade-in-up animation-delay-100" : "opacity-0"
-              }`}
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-bold text-white leading-[1.08] tracking-tight ${heroVisible ? "animate-fade-in-up animation-delay-100" : "opacity-0"
+                }`}
             >
               We manage
               <br />
@@ -76,17 +74,15 @@ export default function HomeClient() {
             </h1>
 
             <p
-              className={`text-base sm:text-lg text-white/80 max-w-xl leading-relaxed font-normal ${
-                heroVisible ? "animate-fade-in-up animation-delay-200" : "opacity-0"
-              }`}
+              className={`text-base sm:text-lg text-white/80 max-w-xl leading-relaxed font-normal ${heroVisible ? "animate-fade-in-up animation-delay-200" : "opacity-0"
+                }`}
             >
               Professional online class management, coursework completion, and exam preparation designed for busy students and working professionals.
             </p>
 
             <div
-              className={`pt-2 flex flex-wrap items-center gap-4 ${
-                heroVisible ? "animate-fade-in-up animation-delay-300" : "opacity-0"
-              }`}
+              className={`pt-2 flex flex-wrap items-center gap-4 ${heroVisible ? "animate-fade-in-up animation-delay-300" : "opacity-0"
+                }`}
             >
               <Link
                 href="/contact"
