@@ -222,7 +222,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <Link
-                href="/contact"
+                href="/price-calculator"
                 className="px-8 py-4 bg-white text-charcoal hover:bg-gold hover:text-white rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-xl hover:scale-105 active:scale-95"
               >
                 Get Custom Quote
