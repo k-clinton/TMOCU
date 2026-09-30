@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const faqs = [
   {
@@ -16,7 +16,8 @@ const faqs = [
   },
   {
     question: "How does this work?",
-    answer: `Step 1. Give us details about your online class.\nStep 2. We'll give you the price quote.\nStep 3. We'll start to handle the class as you pay weekly.`,
+    answer:
+      "Step 1. Give us details about your online class.\nStep 2. We'll give you the price quote.\nStep 3. We'll start to handle the class as you pay weekly.",
   },
   {
     question: "What payment methods are available?",
@@ -25,16 +26,6 @@ const faqs = [
   {
     question: "Can I pay someone to take my online exam?",
     answer: "No. We only take full classes or write essay assignments.",
-  },
-  {
-    question: "How quickly can you start managing my class?",
-    answer:
-      "We can typically begin within 24 hours of receiving your course details and confirming payment. Reach out and we'll get you onboarded the same day.",
-  },
-  {
-    question: "Will my grades be guaranteed?",
-    answer:
-      "Yes. We offer grade guarantees on all managed coursework. If we fall short of the agreed target, we'll work the remaining balance at no extra charge until it's met.",
   },
 ];
 
@@ -60,20 +51,22 @@ function FAQItem({
           {question}
         </span>
         <span
-          className={`shrink-0 w-7 h-7 rounded-full border-2 border-charcoal/20 group-hover:border-gold flex items-center justify-center transition-all duration-300 ${
-            open ? "bg-gold border-gold rotate-45" : ""
+          className={`shrink-0 w-7 h-7 rounded-full border border-charcoal/25 group-hover:border-gold flex items-center justify-center transition-all duration-300 ${
+            open ? "bg-charcoal text-white border-charcoal" : "text-charcoal/60"
           }`}
         >
           <svg
-            className={`w-3 h-3 transition-colors duration-200 ${open ? "text-white" : "text-charcoal/60 group-hover:text-gold"}`}
+            className={`w-3.5 h-3.5 transition-transform duration-200 ${
+              open ? "rotate-45" : ""
+            }`}
             viewBox="0 0 12 12"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2.5"
+            strokeWidth="2"
             strokeLinecap="round"
           >
-            <line x1="6" y1="0" x2="6" y2="12" />
-            <line x1="0" y1="6" x2="12" y2="6" />
+            <line x1="6" y1="2" x2="6" y2="10" />
+            <line x1="2" y1="6" x2="10" y2="6" />
           </svg>
         </span>
       </button>
@@ -105,7 +98,7 @@ export default function FAQ() {
           Frequently Asked Questions
         </h2>
         <p className="mt-4 text-base sm:text-lg text-text-secondary max-w-xl mx-auto leading-relaxed">
-          Everything you need to know before getting started.
+          We&apos;re the best way to get an A in online classes and essays.
         </p>
       </ScrollReveal>
 
