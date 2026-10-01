@@ -54,23 +54,30 @@ export default function StickyExperience() {
   const containerRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Track which step is in view
+  // Track which step is in view based on viewport position
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight * 0.45;
+      const triggerY = window.innerHeight * 0.45;
+      let currentActive = 0;
+
       stepRefs.current.forEach((el, index) => {
         if (!el) return;
-        const top = el.offsetTop;
-        const height = el.offsetHeight;
-        if (scrollPos >= top && scrollPos < top + height) {
-          setActiveStep(index);
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= triggerY) {
+          currentActive = index;
         }
       });
+
+      setActiveStep(currentActive);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
