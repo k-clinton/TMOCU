@@ -26,6 +26,13 @@ export default function Footer() {
     return null;
   }
 
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-charcoal text-white pt-20 pb-12 border-t border-white/10" role="contentinfo">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
@@ -57,7 +64,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16">
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-4">
-            <Link href="/" className="inline-block">
+            <Link href="/" onClick={handleHomeClick} className="inline-block">
               <span className="text-xl font-bold text-white tracking-tight">
                 tmocu<span className="text-gold">°</span>
               </span>
@@ -83,6 +90,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    onClick={item.href === "/" ? handleHomeClick : undefined}
                     className="text-xs text-white/70 hover:text-white transition-colors"
                   >
                     {item.label}
