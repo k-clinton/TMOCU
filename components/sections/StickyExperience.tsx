@@ -20,7 +20,7 @@ const stories: StoryStep[] = [
     title: "We are the best online class service provider in USA and Canada",
     body: "The best thing about us is that we have a whole team of trained, experienced professionals who are dedicated to making sure you get the best experience possible when it comes to conquering your education journey in today's fast paced world.",
     features: [
-      "Vetted degree-holding academic specialists",
+      "Vetted degree holding academic specialists",
       "Full coverage for USA & Canadian universities",
       "Canvas, Blackboard, D2L & Brightspace mastery",
     ],
@@ -144,7 +144,7 @@ export default function StickyExperience() {
                               <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                               </svg>
-                              <span>Show Saved &quot;What-If&quot; Scores</span>
+                              <span>Show Saved &quot;What If&quot; Scores</span>
                             </div>
 
                             <div>
@@ -169,7 +169,7 @@ export default function StickyExperience() {
                               </div>
 
                               <p className="text-[10px] sm:text-[11px] text-charcoal/70 leading-relaxed pt-1">
-                                You can view your grades based on What-If scores so that you know how grades will be affected by upcoming or resubmitted assignments. You can test scores for an assignment that already includes a score, or an assignment that has yet to be graded.
+                                You can view your grades based on What If scores so that you know how grades will be affected by upcoming or resubmitted assignments. You can test scores for an assignment that already includes a score, or an assignment that has yet to be graded.
                               </p>
                             </div>
                           </div>
