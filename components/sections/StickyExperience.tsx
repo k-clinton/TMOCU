@@ -94,21 +94,21 @@ export default function StickyExperience() {
         {/* 2-Column Sticky Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
           {/* Left / Stationary Sticky Column: Realistic Mobile Phone Mockup */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 z-20 flex flex-col items-center">
+          <div className="lg:col-span-5 lg:sticky lg:top-20 z-20 flex flex-col items-center">
             {/* Phone Outer Chassis with Volume & Power Buttons */}
-            <div className="relative w-[285px] sm:w-[310px] drop-shadow-2xl">
+            <div className="relative w-[290px] sm:w-[320px] drop-shadow-2xl">
               {/* Left Side Buttons (Mute + Volume) */}
-              <div className="absolute -left-[3.5px] top-24 w-[3.5px] h-6 bg-[#33383F] rounded-l-xs" />
-              <div className="absolute -left-[3.5px] top-34 w-[3.5px] h-10 bg-[#33383F] rounded-l-xs" />
-              <div className="absolute -left-[3.5px] top-48 w-[3.5px] h-10 bg-[#33383F] rounded-l-xs" />
+              <div className="absolute -left-[3.5px] top-28 w-[3.5px] h-6 bg-[#33383F] rounded-l-xs" />
+              <div className="absolute -left-[3.5px] top-40 w-[3.5px] h-10 bg-[#33383F] rounded-l-xs" />
+              <div className="absolute -left-[3.5px] top-56 w-[3.5px] h-10 bg-[#33383F] rounded-l-xs" />
 
               {/* Right Side Button (Power) */}
-              <div className="absolute -right-[3.5px] top-32 w-[3.5px] h-14 bg-[#33383F] rounded-r-xs" />
+              <div className="absolute -right-[3.5px] top-36 w-[3.5px] h-14 bg-[#33383F] rounded-r-xs" />
 
               {/* Phone Body Frame */}
-              <div className="rounded-[44px] sm:rounded-[48px] p-3 sm:p-3.5 bg-[#0F1216] border-[4px] border-[#2C323B] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] overflow-hidden">
-                {/* Phone Screen Glass */}
-                <div className="rounded-[34px] sm:rounded-[38px] overflow-hidden bg-white text-charcoal h-[480px] sm:h-[510px] flex flex-col justify-between relative shadow-inner">
+              <div className="rounded-[46px] sm:rounded-[50px] p-3 sm:p-3.5 bg-[#0F1216] border-[4px] border-[#2C323B] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] overflow-hidden">
+                {/* Phone Screen Glass - Increased Height by 1.3 Inches (+125px) */}
+                <div className="rounded-[36px] sm:rounded-[40px] overflow-hidden bg-white text-charcoal h-[605px] sm:h-[635px] flex flex-col justify-between relative shadow-inner">
                   {/* Top Phone Notch / Dynamic Island */}
                   <div className="pt-2 pb-1 bg-white flex justify-center z-10">
                     <div className="w-24 h-4 bg-black rounded-full flex items-center justify-end px-2">
