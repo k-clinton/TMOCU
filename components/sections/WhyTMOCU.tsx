@@ -102,7 +102,7 @@ export default function WhyTMOCU() {
                 &ldquo;We treat your coursework with the same rigor and dedication as you would.&rdquo;
               </h3>
               <p className="text-xs sm:text-sm text-white/70 leading-relaxed max-w-lg">
-                From our 1-hour response SLA to our verified rubric compliance check, we ensure your online academic journey is seamless and stress-free.
+                From our 1 hour response SLA to our verified rubric compliance check, we ensure your online academic journey is seamless and stress free.
               </p>
               <div className="pt-2">
                 <Link
