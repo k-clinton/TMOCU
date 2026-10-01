@@ -27,7 +27,7 @@ export default function HeroImageBackdrop({
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="relative w-full h-full"
       >
-        <div className="w-full h-full animate-ken-burns">
+        <div className="relative w-full h-full animate-ken-burns">
           <Image
             src={src}
             alt={alt}
