@@ -131,6 +131,59 @@ export default function AboutPage() {
             </ScrollRevealStagger>
           </div>
 
+          {/* Anti-Scam & Student Protection Pillar (Original TMOCU Core Promise) */}
+          <ScrollReveal animation="fade-up" className="mb-24">
+            <div className="bg-[#FAF0ED] border border-[#F5D5CB] rounded-[32px] p-8 sm:p-14">
+              <div className="max-w-3xl mb-10">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#C83820] bg-white/80 px-3 py-1 rounded-full border border-[#F5D5CB] inline-block mb-3">
+                  Student Safety Warning &amp; Protection
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-charcoal tracking-tight">
+                  Hire Us, Avoid Scammers
+                </h2>
+                <p className="text-sm sm:text-base text-charcoal/80 mt-3 leading-relaxed">
+                  We&apos;ve been in the higher education support industry for years and have seen it all when it comes to online scams. There are fraudulent sites with deceptive representatives that pretend they will help, but really want nothing more than to scam and blackmail unsuspecting students.
+                </p>
+                <p className="text-sm sm:text-base text-charcoal/80 mt-3 leading-relaxed">
+                  <span className="font-semibold text-charcoal">&ldquo;Pay someone to take my class?&rdquo;</span> is not a decision to take lightly. It requires careful research into finding verified, legitimate academic specialists. With TMOCU, you are assured of genuine, confidential, and stress-free service. Do not let predatory scams compromise your academic career — we are here to protect you.
+                </p>
+              </div>
+
+              {/* 3 Comparison / Security Callouts */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#F5D5CB]">
+                <div className="bg-white rounded-2xl p-6 border border-[#F5D5CB] shadow-sm space-y-2">
+                  <div className="w-8 h-8 rounded-full bg-[#C83820]/10 text-[#C83820] flex items-center justify-center font-bold text-sm">
+                    ✕
+                  </div>
+                  <h3 className="text-sm font-bold text-charcoal">Common Industry Scams</h3>
+                  <p className="text-xs text-text-secondary leading-relaxed">
+                    Unverified overseas call centers, bait-and-switch pricing, non-delivery, and extortion threats using stolen portal data.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 border border-[#C59B27]/40 shadow-sm space-y-2">
+                  <div className="w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center font-bold text-sm">
+                    ✓
+                  </div>
+                  <h3 className="text-sm font-bold text-charcoal">The TMOCU Guarantee</h3>
+                  <p className="text-xs text-text-secondary leading-relaxed">
+                    Verified degree-holding specialists in USA &amp; Canada, strict NDAs, encrypted credentials, and regional IP protection.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 border border-emerald-300/40 shadow-sm space-y-2">
+                  <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
+                    🛡
+                  </div>
+                  <h3 className="text-sm font-bold text-charcoal">100% Stress-Free &amp; Legit</h3>
+                  <p className="text-xs text-text-secondary leading-relaxed">
+                    Dedicated academic coordinators, weekly verifiable grade audits, and guaranteed peace of mind from day one.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
           {/* Academic Specialist Network */}
           <ScrollReveal animation="scale-up" className="mb-24">
             <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center shadow-2xl">
