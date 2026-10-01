@@ -576,7 +576,7 @@ const universities: University[] = [
           fill="#111418"
           letterSpacing="0.4px"
         >
-          CINCINNATI <span className="font-medium text-[#E00122]">ONLINE</span>
+          CINCINNATI <tspan fill="#E00122" fontWeight="500">ONLINE</tspan>
         </text>
       </svg>
     ),
