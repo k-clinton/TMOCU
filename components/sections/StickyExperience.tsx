@@ -257,22 +257,6 @@ export default function StickyExperience() {
                   </div>
                 </div>
               </div>
-
-              {/* Interactive Stage Indicator Below Phone */}
-              <div className="mt-4 flex items-center justify-center gap-2 text-xs text-charcoal/60">
-                {stories.map((s, idx) => (
-                  <button
-                    key={s.id}
-                    onClick={() => {
-                      stepRefs.current[idx]?.scrollIntoView({ behavior: "smooth", block: "center" });
-                    }}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activeStep === idx ? "w-8 bg-gold" : "w-2 bg-charcoal/20"
-                    }`}
-                    aria-label={`Scroll to stage ${idx + 1}`}
-                  />
-                ))}
-              </div>
             </div>
           </div>
 
