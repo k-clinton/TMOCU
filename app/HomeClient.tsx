@@ -60,7 +60,7 @@ export default function HomeClient() {
                 }`}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-gold" />
-              Ace Your Online Coursework With Us
+              ACE YOUR ONLINE COURSEWORK WITH US
             </span>
 
             <h1
