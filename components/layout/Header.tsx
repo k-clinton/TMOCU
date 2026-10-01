@@ -40,6 +40,13 @@ export default function Header() {
     return null;
   }
 
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <header
@@ -53,6 +60,7 @@ export default function Header() {
         {/* Left: Minimal Wordmark Logo */}
         <Link
           href="/"
+          onClick={handleHomeClick}
           className="flex items-center gap-1.5 group tracking-tight pl-1"
           aria-label="TMOCU Home"
         >
@@ -79,6 +87,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={item.href === "/" ? handleHomeClick : undefined}
                 className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                   isActive
                     ? "bg-white text-charcoal font-semibold shadow-sm"
@@ -138,7 +147,12 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => {
+                  setMobileOpen(false);
+                  if (item.href === "/") {
+                    handleHomeClick(e);
+                  }
+                }}
                 className={`px-4 py-3 text-sm font-medium rounded-xl transition-all ${
                   isActive
                     ? "bg-white text-charcoal font-semibold"
