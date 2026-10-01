@@ -11,6 +11,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import HeroImageBackdrop from "@/components/ui/HeroImageBackdrop";
 import AnimatedImageCard from "@/components/ui/AnimatedImageCard";
 import ScrollReveal, { ScrollRevealStagger, ScrollRevealItem } from "@/components/ui/ScrollReveal";
+import StickyExperience from "@/components/sections/StickyExperience";
 
 const metricCards = [
   {
@@ -268,6 +269,9 @@ export default function HomeClient() {
               />
             </div>
           </div>
+
+          {/* ─── Interactive Sticky Experience (Original TMOCU Core Features & Portal Verification) ─── */}
+          <StickyExperience />
 
           {/* ─── Why Choose Us Section ─── */}
           <WhyTMOCU />
