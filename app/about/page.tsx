@@ -145,7 +145,7 @@ export default function AboutPage() {
                   We&apos;ve been in the higher education support industry for years and have seen it all when it comes to online scams. There are fraudulent sites with deceptive representatives that pretend they will help, but really want nothing more than to scam and blackmail unsuspecting students.
                 </p>
                 <p className="text-sm sm:text-base text-charcoal/80 mt-3 leading-relaxed">
-                  <span className="font-semibold text-charcoal">&ldquo;Pay someone to take my class?&rdquo;</span> is not a decision to take lightly. It requires careful research into finding verified, legitimate academic specialists. With TMOCU, you are assured of genuine, confidential, and stress-free service. Do not let predatory scams compromise your academic career — we are here to protect you.
+                  <span className="font-semibold text-charcoal">&ldquo;Pay someone to take my class?&rdquo;</span> is not a decision to take lightly. It requires careful research into finding verified, legitimate academic specialists. With TMOCU, you are assured of genuine, confidential, and stress free service. Do not let predatory scams compromise your academic career, we are here to protect you.
                 </p>
               </div>
 
@@ -157,7 +157,7 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-sm font-bold text-charcoal">Common Industry Scams</h3>
                   <p className="text-xs text-text-secondary leading-relaxed">
-                    Unverified overseas call centers, bait-and-switch pricing, non-delivery, and extortion threats using stolen portal data.
+                    Unverified overseas call centers, bait and switch pricing, non delivery, and extortion threats using stolen portal data.
                   </p>
                 </div>
 
@@ -167,7 +167,7 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-sm font-bold text-charcoal">The TMOCU Guarantee</h3>
                   <p className="text-xs text-text-secondary leading-relaxed">
-                    Verified degree-holding specialists in USA &amp; Canada, strict NDAs, encrypted credentials, and regional IP protection.
+                    Verified degree holding specialists in USA &amp; Canada, strict NDAs, encrypted credentials, and regional IP protection.
                   </p>
                 </div>
 
@@ -175,7 +175,7 @@ export default function AboutPage() {
                   <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
                     🛡
                   </div>
-                  <h3 className="text-sm font-bold text-charcoal">100% Stress-Free &amp; Legit</h3>
+                  <h3 className="text-sm font-bold text-charcoal">100% Stress Free &amp; Legit</h3>
                   <p className="text-xs text-text-secondary leading-relaxed">
                     Dedicated academic coordinators, weekly verifiable grade audits, and guaranteed peace of mind from day one.
                   </p>
