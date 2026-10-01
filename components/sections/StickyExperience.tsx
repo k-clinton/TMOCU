@@ -101,7 +101,7 @@ export default function StickyExperience() {
         {/* 2-Column Sticky Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
           {/* Left / Stationary Sticky Column: Realistic Mobile Phone Mockup */}
-          <div className="lg:col-span-5 lg:sticky lg:top-20 z-20 flex flex-col items-center">
+          <div className="lg:col-span-5 lg:sticky lg:top-32 z-20 flex flex-col items-center">
             {/* Phone Outer Chassis with Volume & Power Buttons */}
             <div className="relative w-[290px] sm:w-[320px] drop-shadow-2xl">
               {/* Left Side Buttons (Mute + Volume) */}
