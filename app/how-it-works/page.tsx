@@ -178,7 +178,7 @@ export default function HowItWorksPage() {
                   We understand that privacy and legitimacy are paramount. Our specialists use secure, dedicated residential connections matching your school&apos;s geographic location, preventing unexpected flags on university LMS portals.
                 </p>
                 <p className="text-sm text-white/70 leading-relaxed">
-                  Unlike unscrupulous offshore websites that pose as local tutors only to blackmail or deliver plagiarized work, TMOCU operates with strict confidentiality agreements, verified degree-holding specialists, and full grade guarantees.
+                  Unlike unscrupulous offshore websites that pose as local tutors only to blackmail or deliver plagiarized work, TMOCU operates with strict confidentiality agreements, verified degree holding specialists, and full grade guarantees.
                 </p>
               </div>
               <div className="lg:col-span-5">
