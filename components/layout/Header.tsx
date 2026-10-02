@@ -91,7 +91,7 @@ export default function Header() {
                 className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                   isActive
                     ? "bg-white text-charcoal font-semibold shadow-sm"
-                    : "text-white/80 hover:text-white hover:bg-white/15"
+                    : "text-white/80 h over:text-white hover:bg-white/15"
                 }`}
               >
                 {item.label}
