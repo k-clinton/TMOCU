@@ -130,10 +130,12 @@ export default function AboutPage() {
               ))}
             </ScrollRevealStagger>
           </div>
+        </div>
 
-          {/* Anti-Scam & Student Protection Pillar (Original TMOCU Core Promise) */}
-          <ScrollReveal animation="fade-up" className="mb-24">
-            <div className="bg-[#FAF0ED] border border-[#F5D5CB] rounded-[32px] p-8 sm:p-14">
+        {/* Anti-Scam & Student Protection Pillar (Original TMOCU Core Promise - Full Width Background) */}
+        <section className="w-full bg-[#FAF0ED] border-y border-[#F5D5CB] py-16 sm:py-20 lg:py-24 mb-24">
+          <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
+            <ScrollReveal animation="fade-up">
               <div className="max-w-3xl mb-10">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#C83820] bg-white/80 px-3 py-1 rounded-full border border-[#F5D5CB] inline-block mb-3">
                   Student Safety Warning &amp; Protection
@@ -150,7 +152,7 @@ export default function AboutPage() {
               </div>
 
               {/* 3 Comparison / Security Callouts */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#F5D5CB]">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-[#F5D5CB]">
                 <div className="bg-white rounded-2xl p-6 border border-[#F5D5CB] shadow-sm space-y-2">
                   <div className="w-8 h-8 rounded-full bg-[#C83820]/10 text-[#C83820] flex items-center justify-center font-bold text-sm">
                     ✕
@@ -181,9 +183,11 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
+        </section>
 
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
           {/* Academic Specialist Network */}
           <ScrollReveal animation="scale-up" className="mb-24">
             <div className="bg-[#121417] text-white rounded-[32px] p-8 sm:p-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center shadow-2xl">
