@@ -106,7 +106,7 @@ export default function Header() {
             href="/price-calculator"
             className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold px-4 py-1.5 rounded-full bg-white text-charcoal hover:bg-gold hover:text-white transition-all duration-200 shadow-sm"
           >
-            <span>Get a quote</span>
+            <span>Get a Quote</span>
             <span className="w-1.5 h-1.5 rounded-full bg-gold" />
           </Link>
 
