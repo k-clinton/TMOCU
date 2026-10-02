@@ -78,7 +78,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "I was falling behind on timed Calculus II problem sets on WebAssign. TMOCU stepped in mid-semester, managed every homework module with full step by step workings, and prepared me for proctored exams. Turned my grade around from a D to a solid B+!",
+      "I was falling behind on timed Calculus II problem sets on WebAssign. TMOCU stepped in mid semester, managed every homework module with full step by step workings, and prepared me for proctored exams. Turned my grade around from a D to a solid B+!",
     author: "Brandon L.",
     role: "Mechanical Engineering Student",
     program: "B.S. Mechanical Engineering",
